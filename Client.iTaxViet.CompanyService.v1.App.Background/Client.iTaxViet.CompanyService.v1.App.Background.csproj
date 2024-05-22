@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ShinyRock.Core.SourceGenerator.v1" Version="0.0.1.29" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Background.Abstract\App.Background.Abstract.csproj" />
+        <ProjectReference Include="..\Core.BackgroundService.Abstract\Core.BackgroundService.Abstract.csproj" />
+        <ProjectReference Include="..\Core.BackgroundService.Interface\Core.BackgroundService.Interface.csproj" />
+        <ProjectReference Include="..\Core.Rds.Interface\Core.Rds.Interface.csproj" />
+        <ProjectReference Include="..\Core.Rds.PostgreSql\Core.Rds.PostgreSql.csproj" />
+        <ProjectReference Include="..\Core.SourceGenerator.v1.App.Background\Core.SourceGenerator.v1.App.Background.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\Core.Stream.Abstract\Core.Stream.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Stream.Interface\Core.Stream.Interface.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Client.iTaxViet.CompanyService.v1\Company.cs">
+            <Link>Company.cs</Link>
+        </Compile>
+        <Compile Include="..\Client.iTaxViet.CompanyService.v1\CompanyDto.cs">
+            <Link>CompanyDto.cs</Link>
+        </Compile>
+    </ItemGroup>
+
+</Project>

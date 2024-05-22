@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ShinyRock.Core.Attribute</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
+        <ProjectReference Include="..\Core.Model\Core.Model.csproj" />
+    </ItemGroup>
+
+</Project>

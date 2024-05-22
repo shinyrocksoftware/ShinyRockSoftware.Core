@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
+    </ItemGroup>
+
+</Project>

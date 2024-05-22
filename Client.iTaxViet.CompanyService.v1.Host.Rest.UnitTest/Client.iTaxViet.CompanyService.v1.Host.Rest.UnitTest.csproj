@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+        <PackageReference Include="NSubstitute" Version="5.1.0" />
+        <PackageReference Include="NUnit" Version="4.1.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Rest.Abstract\App.Rest.Abstract.csproj" />
+        <ProjectReference Include="..\Client.iTaxViet.CompanyService.v1.Host.Rest\Client.iTaxViet.CompanyService.v1.Host.Rest.csproj" />
+        <PackageReference Include="ShinyRock.Core.SourceGenerator.v1" Version="0.0.1.29" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Client.iTaxViet.CompanyService.v1\Company.cs">
+            <Link>Company.cs</Link>
+        </Compile>
+        <Compile Include="..\Client.iTaxViet.CompanyService.v1\CompanyDto.cs">
+            <Link>CompanyDto.cs</Link>
+        </Compile>
+    </ItemGroup>
+
+</Project>

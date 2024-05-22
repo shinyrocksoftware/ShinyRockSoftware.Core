@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.Caching.Redis\Core.Caching.Redis.csproj" />
+        <ProjectReference Include="..\Core.Stream\Core.Stream.csproj" />
+        <ProjectReference Include="..\Core.App\Core.App.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.Local.json">
+            <DependentUpon>appsettings.json</DependentUpon>
+        </None>
+    </ItemGroup>
+
+</Project>

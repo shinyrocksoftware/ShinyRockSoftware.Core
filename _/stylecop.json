@@ -1,0 +1,25 @@
+﻿{
+    "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+    "settings": {
+        "documentationRules": {
+            "xmlHeader": false,
+            "fileNamingConvention": "metadata"
+        },
+        "layoutRules": {
+            "newlineAtEndOfFile": "omit",
+            "allowConsecutiveUsings": false
+        },
+        "orderingRules": {
+            "usingDirectivesPlacement": "outsideNamespace",
+            "blankLinesBetweenUsingGroups": "require"
+        },
+        "indentation": {
+            "indentationSize": 4,
+            "tabSize": 4,
+            "useTabs": false
+        },
+        "readabilityRules": {
+            "allowBuiltInTypeAliases": true
+        }
+    }
+}

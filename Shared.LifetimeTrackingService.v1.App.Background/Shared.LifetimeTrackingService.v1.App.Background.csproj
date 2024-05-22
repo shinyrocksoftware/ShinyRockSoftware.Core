@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Background.Abstract\App.Background.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Attribute\Core.Attribute.csproj" />
+        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Core.Stream.Abstract\Core.Stream.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Stream.Interface\Core.Stream.Interface.csproj" />
+        <ProjectReference Include="..\Core.SourceGenerator.v1.App.Background\Core.SourceGenerator.v1.App.Background.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\Shared.LifetimeTrackingService.v1.App\Shared.LifetimeTrackingService.v1.App.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MediatR" Version="12.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Shared.LifetimeTrackingService.v1\EntityLifetime.cs">
+            <Link>EntityLifetime.cs</Link>
+        </Compile>
+        <Compile Include="..\Shared.LifetimeTrackingService.v1\EntityLifetimeDto.cs">
+            <Link>EntityLifetimeDto.cs</Link>
+        </Compile>
+    </ItemGroup>
+
+</Project>

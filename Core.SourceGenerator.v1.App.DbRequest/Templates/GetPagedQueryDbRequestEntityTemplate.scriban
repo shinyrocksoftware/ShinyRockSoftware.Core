@@ -1,0 +1,6 @@
+﻿using Core.Model.Abstract.DbRequests;
+using Core.Model.Interface.DbRequests;
+
+namespace {{ClientNamespace}}.App.DbRequests;
+
+public class GetPaged{{EntityNamePlural}}QueryDbRequest : BasePagedQueryDbRequest<Guid, {{EntityName}}>, IPagedQueryDbRequest<Guid>;

@@ -1,0 +1,4 @@
+﻿# RUN ON JEBRAINS RIDER
+
+### GET STATUS
+GET {{host_lab_job}}/background/report

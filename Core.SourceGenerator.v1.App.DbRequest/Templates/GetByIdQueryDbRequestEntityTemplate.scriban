@@ -1,0 +1,5 @@
+﻿using Core.Model.Abstract.DbRequests;
+
+namespace {{ClientNamespace}}.App.DbRequests;
+
+public class Get{{EntityName}}ByIdQueryDbRequest : BaseQueryDbRequest<Guid, {{EntityName}}>;

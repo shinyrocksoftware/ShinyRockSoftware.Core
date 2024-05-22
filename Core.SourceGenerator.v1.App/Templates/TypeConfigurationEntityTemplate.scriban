@@ -1,0 +1,32 @@
+﻿using Core.Rds.PostgreSql.EntityTypeConfigurations;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace {{ClientNamespace}}.App.TypeConfigurations;
+
+public partial class {{EntityName}}TypeConfiguration : BaseEntityPostgreSqlTypeConfiguration<Guid, {{EntityName}}>
+                                        , IEntityTypeConfiguration<{{EntityName}}>
+{
+	partial void ConfigureAdvanced(EntityTypeBuilder<{{EntityName}}> builder);
+
+	public override void Configure(EntityTypeBuilder<{{EntityName}}> builder)
+	{
+		base.Configure(builder);
+
+		builder.ToTable("{{ EntityName | string.downcase }}");
+
+		builder.Property(e => e.IsActive)
+		       .IsRequired()
+		       .HasDefaultValue(true)
+		       .HasColumnType("bool");
+        {{~ for property in Properties ~}}
+		builder.Property(e => e.{{property.Name}})
+		       {{~ if property.Required ~}}
+		       .IsRequired()
+		       {{~ end ~}}
+		       .HasColumnType("{{property.DbType}}");
+        {{~ end ~}}
+
+        ConfigureAdvanced(builder);
+	}
+}

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.Attribute\Core.Attribute.csproj" />
+        <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Rds.Interface\Core.Rds.Interface.csproj" />
+        <ProjectReference Include="..\Core.Rds.PostgreSql\Core.Rds.PostgreSql.csproj" />
+        <ProjectReference Include="..\Core.SourceGenerator.v1.App\Core.SourceGenerator.v1.App.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <PackageReference Include="ShinyRock.Core.SourceGenerator.v1" Version="0.0.1.29" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Shared.LifetimeTrackingService.v1\EntityLifetime.cs">
+            <Link>EntityLifetime.cs</Link>
+        </Compile>
+        <Compile Include="..\Shared.LifetimeTrackingService.v1\EntityLifetimeDto.cs">
+            <Link>EntityLifetimeDto.cs</Link>
+        </Compile>
+    </ItemGroup>
+
+</Project>

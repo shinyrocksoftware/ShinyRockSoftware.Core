@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Rest.PostgreSql\App.Rest.PostgreSql.csproj" />
+<!--        <ProjectReference Include="..\Core.SourceGenerator.v1.App.Rest\Core.SourceGenerator.v1.App.Rest.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />-->
+        <ProjectReference Include="..\Shared.FileService.v1.App\Shared.FileService.v1.App.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Shared.FileService.v1\File.cs">
+            <Link>File.cs</Link>
+        </Compile>
+        <Compile Include="..\Shared.FileService.v1\FileDto.cs">
+            <Link>FileDto.cs</Link>
+        </Compile>
+    </ItemGroup>
+
+</Project>

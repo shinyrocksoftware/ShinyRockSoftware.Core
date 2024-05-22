@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Rest.Abstract\App.Rest.Abstract.csproj" />
+        <ProjectReference Include="..\Client.iTaxViet.CompanyService.v1.App\Client.iTaxViet.CompanyService.v1.App.csproj" />
+        <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Core.SourceGenerator.v1.App.Rest\Core.SourceGenerator.v1.App.Rest.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\Client.iTaxViet.CompanyService.v1\Company.cs">
+            <Link>Company.cs</Link>
+        </Compile>
+        <Compile Include="..\Client.iTaxViet.CompanyService.v1\CompanyDto.cs">
+            <Link>CompanyDto.cs</Link>
+        </Compile>
+    </ItemGroup>
+
+</Project>

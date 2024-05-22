@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <IsPackable>false</IsPackable>
+        <UserSecretsId>Shared.LifetimeTrackingService.v1.Host.Rest</UserSecretsId>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Rest.Abstract\App.Rest.Abstract.csproj" />
+        <ProjectReference Include="..\App.Rest.PostgreSql\App.Rest.PostgreSql.csproj" />
+        <ProjectReference Include="..\Shared.LifetimeTrackingService.v1\Shared.LifetimeTrackingService.v1.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Update="appsettings.Local.json">
+            <DependentUpon>appsettings.json</DependentUpon>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Tests\http-client.env.json" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,45 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Crawler for certificates on Azure",
+  "version": "1.0",
+  "author": "Phong Lu <lutaiphong@gmail.com>",
+  "permissions": [
+    "downloads",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "icons": {
+    "16": "/images/icon-16_x_16.png",
+    "32": "/images/icon-32_x_32.png",
+    "48": "/images/icon-48_x_48.png",
+    "128": "/images/icon-128_x_128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "/images/icon-16_x_16.png",
+      "32": "/images/icon-32_x_32.png",
+      "48": "/images/icon-48_x_48.png",
+      "128": "/images/icon-128_x_128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "https://learn.microsoft.com/en-us/certifications/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://learn.microsoft.com/en-us/certifications/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "options_page": "options.html"
+}

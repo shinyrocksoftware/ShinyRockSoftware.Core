@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+        <UserSecretsId>Client.iTaxViet.CompanyService.v1.Host.Background</UserSecretsId>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Background.Abstract\App.Background.Abstract.csproj" />
+        <ProjectReference Include="..\App.Rest\App.Rest.csproj" />
+        <ProjectReference Include="..\App.Rest.Abstract\App.Rest.Abstract.csproj" />
+        <ProjectReference Include="..\App.Rest.PostgreSql\App.Rest.PostgreSql.csproj" />
+        <ProjectReference Include="..\Client.iTaxViet.CompanyService.v1.App.Background\Client.iTaxViet.CompanyService.v1.App.Background.csproj" />
+        <ProjectReference Include="..\Client.iTaxViet.CompanyService.v1.App.Rest\Client.iTaxViet.CompanyService.v1.App.Rest.csproj" />
+        <ProjectReference Include="..\Core.App\Core.App.csproj" />
+        <ProjectReference Include="..\Core.Stream.Abstract\Core.Stream.Abstract.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Update="appsettings.Local.json">
+            <DependentUpon>appsettings.json</DependentUpon>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Tests\http-client.env.json" />
+    </ItemGroup>
+
+</Project>

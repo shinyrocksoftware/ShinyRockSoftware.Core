@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.CertificatePath.ChromeExtension", "Client.CertificatePath.ChromeExtension.csproj", "{6DBABE3D-CDC2-4551-BD86-EA2AF226FD41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DBABE3D-CDC2-4551-BD86-EA2AF226FD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DBABE3D-CDC2-4551-BD86-EA2AF226FD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DBABE3D-CDC2-4551-BD86-EA2AF226FD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DBABE3D-CDC2-4551-BD86-EA2AF226FD41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {330E474C-5796-42B4-B97C-175C2AB52DF8}
+	EndGlobalSection
+EndGlobal

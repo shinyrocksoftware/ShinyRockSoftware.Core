@@ -1,0 +1,10 @@
+﻿# RUN ON JEBRAINS RIDER
+
+### RESOURCE CPU
+GET {{shared_lifetime_tracking_service_rest}}/resource/cpu
+
+### RESOURCE MEMORY
+GET {{shared_lifetime_tracking_service_rest}}/resource/memory
+
+### HEALTHCHECK
+GET {{shared_lifetime_tracking_service_rest}}/healthcheck

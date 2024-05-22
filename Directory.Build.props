@@ -1,0 +1,26 @@
+<Project>
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <PackageOutputPath>$(MSBuildThisFileDirectory).nuget-packages</PackageOutputPath>
+        <RepositoryUrl>https://github.com/lutaiphong/shiny-rock-core</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <EmbedAllSources>false</EmbedAllSources>
+        <Optimize>true</Optimize>
+        <TieredCompilation>true</TieredCompilation>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+        <Version>0.0.1.29</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="..\_\AssemblyInfo.cs" />
+        <Compile Include="..\_\Global.cs" />
+    </ItemGroup>
+
+</Project>

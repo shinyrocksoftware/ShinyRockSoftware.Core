@@ -1,0 +1,8 @@
+﻿{
+  "profiles": {
+    "Client.iTaxViet.CompanyService.v1.App.Background.Generators": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "../Client.iTaxViet.CompanyService.v1.App.Background/Client.iTaxViet.CompanyService.v1.App.Background.csproj"
+    }
+  }
+}

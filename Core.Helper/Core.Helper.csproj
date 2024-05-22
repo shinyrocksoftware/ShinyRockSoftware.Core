@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ShinyRock.Core.Helper</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.Attribute\Core.Attribute.csproj" />
+        <ProjectReference Include="..\Core.Helper.Interface\Core.Helper.Interface.csproj" />
+        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Core.Model\Core.Model.csproj" />
+        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
+    </ItemGroup>
+
+</Project>

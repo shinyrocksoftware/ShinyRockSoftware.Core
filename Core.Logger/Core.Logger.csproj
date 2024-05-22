@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ShinyRock.Core.Logger</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+        <PackageReference Include="Serilog.Enrichers.AssemblyName" Version="2.0.0" />
+        <PackageReference Include="Serilog.Enrichers.ClientInfo" Version="2.0.3" />
+        <PackageReference Include="Serilog.Enrichers.Environment" Version="2.3.0" />
+        <PackageReference Include="Serilog.Enrichers.Memory" Version="1.0.4" />
+        <PackageReference Include="Serilog.Enrichers.Sensitive" Version="1.7.3" />
+        <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+        <PackageReference Include="Serilog.Formatting.OpenSearch" Version="1.0.0" />
+        <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.Configuration\Core.Configuration.csproj" />
+        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
+        <ProjectReference Include="..\Core.Logger.Interface\Core.Logger.Interface.csproj" />
+        <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
+    </ItemGroup>
+
+</Project>

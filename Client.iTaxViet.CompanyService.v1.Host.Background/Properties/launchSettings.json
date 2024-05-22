@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "Client.iTaxViet.CompanyService.v1.Host.Background": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Local",
+        "ASPNETCORE_ENVIRONMENT": "Local",
+        "REST_PORT": "5202"
+      }
+    }
+  }
+}

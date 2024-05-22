@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ShinyRock.App.Rest.Sqlite</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\App.Rest\App.Rest.csproj" />
+        <ProjectReference Include="..\App.Rest.Abstract\App.Rest.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Rds.Sqlite\Core.Rds.Sqlite.csproj" />
+    </ItemGroup>
+
+</Project>

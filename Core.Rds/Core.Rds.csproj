@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ShinyRock.Core.Rds</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.Caching.Memory\Core.Caching.Memory.csproj" />
+        <ProjectReference Include="..\Core.Configuration.Interface\Core.Configuration.Interface.csproj" />
+        <ProjectReference Include="..\Core.Configuration\Core.Configuration.csproj" />
+        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Core.ObjectMapper\Core.ObjectMapper.csproj" />
+        <ProjectReference Include="..\Core.Rds.Abstract\Core.Rds.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Rds.Interface\Core.Rds.Interface.csproj" />
+        <ProjectReference Include="..\Core.Stream.Interface\Core.Stream.Interface.csproj" />
+    </ItemGroup>
+
+</Project>

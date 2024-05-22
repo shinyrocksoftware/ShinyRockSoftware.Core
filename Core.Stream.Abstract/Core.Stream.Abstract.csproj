@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ShinyRock.Core.Stream.Abstract</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>..\_\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="..\_\stylecop.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" Version="2.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Core.BackgroundService.Abstract\Core.BackgroundService.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Configuration.Interface\Core.Configuration.Interface.csproj" />
+        <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
+        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Core.Stream.Interface\Core.Stream.Interface.csproj" />
+    </ItemGroup>
+
+</Project>

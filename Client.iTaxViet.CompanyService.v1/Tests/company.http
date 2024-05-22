@@ -1,0 +1,124 @@
+﻿# RUN ON JEBRAINS RIDER
+
+### RESOURCE CPU
+GET {{client_itaxviet_company_service_rest}}/resource/cpu
+
+### RESOURCE MEMORY
+GET {{client_itaxviet_company_service_rest}}/resource/memory
+
+### HEALTHCHECK
+GET {{client_itaxviet_company_service_rest}}/healthcheck
+
+
+
+### GET PAGED
+GET {{client_itaxviet_company_service_rest}}/companies/10/1
+
+### CREATE WRONG PAYLOAD
+POST {{client_itaxviet_company_service_rest}}/companies
+Content-Type: application/json
+
+{
+  "taxIdentificationNumber": "123_{{$random.uuid}}",
+  "establishmentAt": "2023-10-10T04:00:00Z"
+}
+
+### CREATE WRONG PAYLOAD 2
+POST {{client_itaxviet_company_service_rest}}/companies
+Content-Type: application/json
+
+{
+  "name": "iTax Việt",
+  "code": "ITAX_VIET_{{$random.uuid}}",
+  "taxIdentification": "123_{{$random.uuid}}",
+  "establishmentAt": "2023-10-10T04:00:00Z"
+}
+
+### CREATE WRONG PAYLOAD 3
+POST {{client_itaxviet_company_service_rest}}/companies
+Content-Type: application/json
+
+{
+}
+
+### CREATE RIGHT PAYLOAD
+POST {{client_itaxviet_company_service_rest}}/companies
+Content-Type: application/json
+
+{
+    "name": "iTax Việt",
+    "code": "ITAX_VIET_{{$random.uuid}}",
+    "taxIdentificationNumber": "123_{{$random.uuid}}",
+    "establishmentAt": "2023-10-10T04:00:00Z"
+}
+
+> {%
+    client.global.set("id", response.body.data.id);
+%}
+
+### GET BY ID
+GET {{client_itaxviet_company_service_rest}}/companies/{{id}}
+
+### EDIT FULL
+PUT {{client_itaxviet_company_service_rest}}/companies/{{id}}
+Content-Type: application/json
+
+{
+    "name": "iTax Việt 2",
+    "code": "ITAX_VIET_{{$random.uuid}}",
+    "taxIdentificationNumber": "456",
+    "establishmentAt": "2023-10-10T04:00:00Z"
+}
+
+### GET BY ID
+GET {{client_itaxviet_company_service_rest}}/companies/{{id}}
+
+### EDIT PARTIAL
+PATCH {{client_itaxviet_company_service_rest}}/companies/{{id}}
+Content-Type: application/json
+
+{
+    "name": "iTax Việt 3"
+}
+
+### GET BY ID
+GET {{client_itaxviet_company_service_rest}}/companies/{{id}}
+
+### DELETE
+DELETE {{client_itaxviet_company_service_rest}}/companies/{{id}}
+
+### GET BY ID
+GET {{client_itaxviet_company_service_rest}}/companies/{{id}}
+
+
+
+### GET COMPANY CREATED BACKGROUND REPORT
+GET {{client_itaxviet_company_service_background}}/companies/created/background/report
+
+### ENABLE COMPANY CREATED BACKGROUND
+PUT {{client_itaxviet_company_service_background}}/companies/created/background/enable
+
+### DISABLE COMPANY CREATED BACKGROUND
+PUT {{client_itaxviet_company_service_background}}/companies/created/background/disable
+
+
+
+### GET COMPANY UPDATED BACKGROUND REPORT
+GET {{client_itaxviet_company_service_background}}/companies/updated/background/report
+
+### ENABLE COMPANY UPDATED BACKGROUND
+PUT {{client_itaxviet_company_service_background}}/companies/updated/background/enable
+
+### DISABLE COMPANY UPDATED BACKGROUND
+PUT {{client_itaxviet_company_service_background}}/companies/updated/background/disable
+
+
+
+### GET COMPANY DELETED BACKGROUND REPORT
+GET {{client_itaxviet_company_service_background}}/companies/deleted/background/report
+
+### ENABLE COMPANY DELETED BACKGROUND
+PUT {{client_itaxviet_company_service_background}}/companies/deleted/background/enable
+
+### DISABLE COMPANY DELETED BACKGROUND
+PUT {{client_itaxviet_company_service_background}}/companies/deleted/background/disable

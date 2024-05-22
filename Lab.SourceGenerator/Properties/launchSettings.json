@@ -1,0 +1,8 @@
+﻿{
+  "profiles": {
+    "Lab.SourceGenerator.Generator": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "../Lab.SourceGenerator/Lab.SourceGenerator.csproj"
+    }
+  }
+}
