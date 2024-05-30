@@ -192,7 +192,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Stream.Interface", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.BackgroundService.Interface", "Core.BackgroundService.Interface\Core.BackgroundService.Interface.csproj", "{941CD2F9-8013-4E92-9EBF-149218E282E3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09.App.Shared", "09.App.Shared", "{DA0FE0AD-9AD4-4942-9A02-3476C7C34057}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09.SharedApp", "09.SharedApp", "{DA0FE0AD-9AD4-4942-9A02-3476C7C34057}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LifetimeTrackingService", "LifetimeTrackingService", "{B5D7999B-3CCE-4B72-9AD0-9DA367212D5D}"
 EndProject
@@ -248,7 +248,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.SourceGenerator.v1.App
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.SourceGenerator.v1.App.DbRequest", "Core.SourceGenerator.v1.App.DbRequest\Core.SourceGenerator.v1.App.DbRequest.csproj", "{56262DBB-05CE-4552-B588-FAEFB6B5958A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09.App.Core", "09.App.Core", "{BF7EDADC-6389-443D-B808-6877305E7AC2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09.CoreApp", "09.CoreApp", "{BF7EDADC-6389-443D-B808-6877305E7AC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "v1", "v1", "{1FA30D4F-F886-484E-B9B9-53482102488F}"
 EndProject
