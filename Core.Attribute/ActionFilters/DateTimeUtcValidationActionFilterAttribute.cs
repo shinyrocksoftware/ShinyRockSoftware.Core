@@ -1,9 +1,9 @@
-using Core.Constant;
-using Core.Extension;
+using Base.Constant;
+using Base.Extension;
 using Core.Model.Abstract.Extensions;
 using Core.Model.ApiResponses;
-using Core.Model.Interface.ApiRequests;
-using Core.Model.Interface.ApiResponses;
+using Base.Model.Interface.ApiRequests;
+using Base.Model.Interface.ApiResponses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.Controllers;

@@ -1,7 +1,7 @@
-﻿using Core.Attribute.AutoInjection;
-using Core.Extension;
+﻿using Base.Extension;
+using Core.Attribute.AutoInjection;
 using Core.Model.Abstract.NotificationEvents;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Core.Stream.Interface;
 using MediatR;
 using Microsoft.Extensions.Logging;

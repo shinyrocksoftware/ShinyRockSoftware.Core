@@ -1,5 +1,5 @@
-﻿using Core.Constant;
-using Core.Model.Interface.MediatorEvents;
+﻿using Base.Constant;
+using Base.Model.Interface.MediatorEvents;
 
 namespace Core.Model.Abstract.NotificationEvents;
 

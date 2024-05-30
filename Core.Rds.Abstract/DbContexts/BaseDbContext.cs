@@ -1,4 +1,4 @@
-﻿using Core.Extension;
+﻿using Base.Extension;
 using Microsoft.EntityFrameworkCore;
 
 namespace Core.Rds.Abstract.DbContexts;

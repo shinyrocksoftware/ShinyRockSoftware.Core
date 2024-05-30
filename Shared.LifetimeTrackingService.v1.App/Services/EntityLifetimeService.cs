@@ -1,5 +1,5 @@
+using Base.ObjectMapper.Extension;
 using Core.Attribute.AutoInjection;
-using Core.ObjectMapper.Extensions;
 using Core.Rds.Interface;
 using Shared.LifetimeTrackingService.v1.App.DbRequests;
 using Shared.LifetimeTrackingService.v1.App.Services.Interfaces;

@@ -1,9 +1,8 @@
 ﻿using System.Linq.Expressions;
-using Core.Extension;
-using Core.Helper;
-using Core.Model.Interface;
-using Core.Model.Interface.Entities;
-using Core.ObjectMapper.Extensions;
+using Base.Model.Interface;
+using Base.Model.Interface.Entities;
+using Base.Extension;
+using Base.ObjectMapper.Extension;
 using Core.Rds.Abstract.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -140,7 +139,7 @@ public abstract class BaseReadRepository<T, TE, TEO, TDC>(ILogger<BaseReadReposi
 			? entities.Select(c => c.To<TEO>())
 			: advancedMapping(entities);
 
-		return PagingHelper.CreatePage(data, pageNumber, pageSize, total);
+		return data.CreatePage(pageNumber, pageSize, total);
 	}
 
 	public async ValueTask<bool> ExistsAsync(Expression<Func<TE, bool>>? filter, CancellationToken cancellationToken)

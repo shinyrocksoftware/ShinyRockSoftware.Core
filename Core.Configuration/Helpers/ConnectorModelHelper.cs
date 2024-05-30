@@ -1,6 +1,6 @@
 ﻿using Core.Attribute.AutoInjection;
 using Core.Configuration.Interface;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.Configuration.Helpers;

@@ -1,5 +1,5 @@
 ﻿using Core.Configuration.Extensions;
-using Core.Constant;
+using Base.Constant;
 using Core.Helper;
 using Core.Totp.ConfigurationConnectors;
 using Core.Totp.ConnectorModels;

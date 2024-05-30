@@ -1,7 +1,7 @@
 using App.Rest.PostgreSql;
 using Client.iTaxViet.CompanyService.v1.App.Background;
 using Client.iTaxViet.CompanyService.v1.Background.BackgroundServices;
-using Core.Job.Extensions;
+using Core.BackgroundService.Extensions;
 
 var program = new RestPostgreSqlProgram();
 program.Run(["Client"]

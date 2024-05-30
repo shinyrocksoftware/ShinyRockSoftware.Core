@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using Core.Configuration.Interface;
-using Core.Constant;
-using Core.Extension;
+using Base.Constant;
+using Base.Extension;
 using Core.Jwt.Interface;
 using Microsoft.Extensions.Logging;
 using NSubstitute;

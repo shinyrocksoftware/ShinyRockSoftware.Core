@@ -1,4 +1,4 @@
-using Core.Constant;
+using Base.Constant;
 
 namespace Core.Configuration.ConfigurationConnectors;
 

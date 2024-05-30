@@ -1,8 +1,8 @@
 using Client.iTaxViet.CompanyService.v1.App.DbRequests;
 using Client.iTaxViet.CompanyService.v1.App.Services.Interfaces;
 using Core.Attribute.AutoInjection;
-using Core.Model.Interface;
-using Core.ObjectMapper.Extensions;
+using Base.Model.Interface;
+using Base.ObjectMapper.Extension;
 using Core.Rds.Interface;
 
 namespace Client.iTaxViet.CompanyService.v1.App.Services;

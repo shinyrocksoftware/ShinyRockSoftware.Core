@@ -1,7 +1,7 @@
 ﻿using Confluent.Kafka;
 using Core.Attribute.AutoInjection;
 using Core.Configuration.Interface;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Core.Stream.ConnectorModels;
 using Core.Stream.Interface;
 using Core.Stream.Models;

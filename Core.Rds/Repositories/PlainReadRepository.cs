@@ -1,4 +1,4 @@
-﻿using Core.Model.Interface.Entities;
+﻿using Base.Model.Interface.Entities;
 using Core.Rds.Abstract.Repositories;
 using Core.Rds.DbContexts;
 using Core.Rds.Interface;

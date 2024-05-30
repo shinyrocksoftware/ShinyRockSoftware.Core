@@ -1,5 +1,5 @@
 using App.Rest.PostgreSql;
-using Core.Job.Extensions;
+using Core.BackgroundService.Extensions;
 using Lab.App.Background.Rest.BackgroundServices;
 
 var program = new RestPostgreSqlProgram();

@@ -1,4 +1,4 @@
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Core.Stream.Interface;
 
 namespace Shared.LifetimeTrackingService.v1.App.Background.Stream.StreamJobs.Interfaces;

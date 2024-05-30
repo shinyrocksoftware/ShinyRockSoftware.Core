@@ -1,5 +1,5 @@
 using Confluent.Kafka;
-using Core.Model.Interface;
+using Base.Model.Interface;
 
 namespace Core.Stream.Interface;
 

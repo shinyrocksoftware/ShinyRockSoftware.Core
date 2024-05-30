@@ -1,5 +1,5 @@
 ﻿using Core.Model.Abstract.MediatorRequests;
-using Core.Model.Interface.MediatorRequests;
+using Base.Model.Interface.MediatorRequests;
 using Shared.LifetimeTrackingService.v1.App.DbRequests;
 
 namespace Shared.LifetimeTrackingService.v1.App.Features.Commands;

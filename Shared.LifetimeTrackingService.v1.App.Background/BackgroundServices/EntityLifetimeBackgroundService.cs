@@ -1,7 +1,7 @@
+using Base.Extension;
 using Core.BackgroundService.Interface;
 using Core.Configuration.ConnectorModels;
 using Core.Configuration.Interface;
-using Core.Extension;
 using Core.Stream.Abstract.BackgroundServices;
 using Core.Stream.ConnectorModels;
 using Microsoft.Extensions.DependencyInjection;

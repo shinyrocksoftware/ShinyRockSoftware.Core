@@ -1,7 +1,7 @@
-﻿using Core.Attribute;
-using Core.Extension;
+﻿using Base.Extension;
+using Core.Attribute;
 using Core.Model.Abstract.ConnectorModels;
-using Core.Model.Interface;
+using Base.Model.Interface;
 
 namespace Core.Jwt.ConnectorModels;
 

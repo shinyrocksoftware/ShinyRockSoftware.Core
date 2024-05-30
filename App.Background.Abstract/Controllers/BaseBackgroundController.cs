@@ -1,6 +1,6 @@
 using App.Rest.Abstract.Controllers;
 using Core.BackgroundService.Interface;
-using Core.Job.Models;
+using Core.BackgroundService.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 

@@ -1,4 +1,4 @@
-using Core.Model.Interface.DbRequests;
+using Base.Model.Interface.DbRequests;
 
 namespace Core.Model.Abstract.DbRequests;
 

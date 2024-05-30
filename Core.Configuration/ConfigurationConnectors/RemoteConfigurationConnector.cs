@@ -1,10 +1,10 @@
+using Base.Extension;
 using Core.Attribute;
 using Core.Configuration.Factories;
 using Core.Configuration.Interface;
 using Core.Model;
-using Core.Extension;
 using Core.Model.Abstract.ConnectorModels;
-using Core.Model.Interface;
+using Base.Model.Interface;
 
 namespace Core.Configuration.ConfigurationConnectors;
 

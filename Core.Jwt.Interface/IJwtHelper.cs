@@ -1,5 +1,5 @@
 using System.Security.Cryptography;
-using Core.Model.Interface;
+using Base.Model.Interface;
 
 namespace Core.Jwt.Interface;
 

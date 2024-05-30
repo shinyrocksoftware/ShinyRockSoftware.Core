@@ -1,8 +1,8 @@
-﻿using Core.Attribute.AutoInjection;
+﻿using Base.Extension;
+using Core.Attribute.AutoInjection;
 using Confluent.Kafka;
 using Core.Configuration.Interface;
-using Core.Extension;
-using Core.Model.Interface.MediatorEvents;
+using Base.Model.Interface.MediatorEvents;
 using Core.Stream.Interface;
 using Core.Stream.ConnectorModels;
 using Microsoft.Extensions.Logging;

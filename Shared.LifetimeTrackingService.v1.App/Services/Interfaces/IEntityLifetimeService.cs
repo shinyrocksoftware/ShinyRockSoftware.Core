@@ -1,4 +1,4 @@
-﻿using Core.Model.Interface;
+﻿using Base.Model.Interface;
 using Shared.LifetimeTrackingService.v1.App.DbRequests;
 
 namespace Shared.LifetimeTrackingService.v1.App.Services.Interfaces;

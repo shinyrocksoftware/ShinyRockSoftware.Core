@@ -1,5 +1,5 @@
 ﻿using Core.Model.Abstract.Entities;
-using Core.Model.Interface.Entities;
+using Base.Model.Interface.Entities;
 
 namespace Client.iTaxViet.CompanyService.v1;
 

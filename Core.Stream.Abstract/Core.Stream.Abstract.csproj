@@ -20,7 +20,7 @@
         <ProjectReference Include="..\Core.BackgroundService.Abstract\Core.BackgroundService.Abstract.csproj" />
         <ProjectReference Include="..\Core.Configuration.Interface\Core.Configuration.Interface.csproj" />
         <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
-        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Base.Model.Interface\Base.Model.Interface.csproj" />
         <ProjectReference Include="..\Core.Stream.Interface\Core.Stream.Interface.csproj" />
     </ItemGroup>
 

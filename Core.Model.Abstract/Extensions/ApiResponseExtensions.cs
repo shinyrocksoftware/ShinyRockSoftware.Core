@@ -1,4 +1,4 @@
-using Core.Model.Interface.ApiResponses;
+using Base.Model.Interface.ApiResponses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Core.Model.Abstract.Extensions;

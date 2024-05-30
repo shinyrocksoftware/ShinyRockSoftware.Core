@@ -1,6 +1,6 @@
 ﻿using Client.iTaxViet.CompanyService.v1.App.DbRequests;
 using Core.Model.Abstract.MediatorRequests;
-using Core.Model.Interface.MediatorRequests;
+using Base.Model.Interface.MediatorRequests;
 
 namespace Client.iTaxViet.CompanyService.v1.App.Features.Commands;
 

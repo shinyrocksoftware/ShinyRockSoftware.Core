@@ -1,10 +1,10 @@
 ﻿using System.Text.Json;
-using Core.Extension;
+using Base.Extension;
 using Core.Caching.Redis.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Core.App;
 using Core.Caching.Interface;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Core.Stream.Extensions;
 using Core.Stream.Interface;
 using Microsoft.Extensions.Logging;

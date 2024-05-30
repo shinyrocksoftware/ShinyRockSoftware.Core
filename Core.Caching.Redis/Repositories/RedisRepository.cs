@@ -1,6 +1,6 @@
-﻿using Core.Attribute.AutoInjection;
+﻿using Base.Extension;
+using Core.Attribute.AutoInjection;
 using Core.Caching.Interface;
-using Core.Extension;
 using Microsoft.Extensions.Logging;
 using StackExchange.Redis.Extensions.Core.Abstractions;
 

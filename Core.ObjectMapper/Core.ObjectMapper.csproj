@@ -17,4 +17,10 @@
         <PackageReference Include="ValueInjecter" Version="3.2.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
+        <ProjectReference Include="..\Base.ObjectMapper.Extension\Base.ObjectMapper.Extension.csproj" />
+        <ProjectReference Include="..\Core.ObjectMapper.Abstract\Core.ObjectMapper.Abstract.csproj" />
+    </ItemGroup>
+
 </Project>

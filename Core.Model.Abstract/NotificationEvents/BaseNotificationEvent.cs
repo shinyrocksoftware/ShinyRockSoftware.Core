@@ -1,4 +1,4 @@
-﻿using Core.Model.Interface.MediatorEvents;
+﻿using Base.Model.Interface.MediatorEvents;
 
 namespace Core.Model.Abstract.NotificationEvents;
 

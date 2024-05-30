@@ -1,4 +1,4 @@
-﻿using Core.Model.Interface;
+﻿using Base.Model.Interface;
 using MediatR;
 using Shared.FileService.v1.App.Services.Interfaces;
 

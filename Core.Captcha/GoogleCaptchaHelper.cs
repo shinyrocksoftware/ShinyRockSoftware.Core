@@ -1,8 +1,8 @@
 ﻿using System.Text.Json;
 using Core.Attribute.AutoInjection;
 using Core.Captcha.Interfaces;
-using Core.Constant;
-using Core.Extension;
+using Base.Constant;
+using Base.Extension;
 using Core.Helper;
 using Microsoft.Extensions.Logging;
 

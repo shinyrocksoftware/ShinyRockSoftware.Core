@@ -1,7 +1,7 @@
+using Base.Model;
 using Client.iTaxViet.CompanyService.v1.App.Rest.Controllers;
-using Core.Model;
 using Core.Model.ApiResponses;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

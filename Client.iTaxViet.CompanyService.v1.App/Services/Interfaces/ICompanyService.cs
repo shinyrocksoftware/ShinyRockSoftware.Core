@@ -1,5 +1,5 @@
 ﻿using Client.iTaxViet.CompanyService.v1.App.DbRequests;
-using Core.Model.Interface;
+using Base.Model.Interface;
 
 namespace Client.iTaxViet.CompanyService.v1.App.Services.Interfaces;
 

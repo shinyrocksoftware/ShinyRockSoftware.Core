@@ -1,6 +1,6 @@
 using Core.Attribute.AutoInjection;
-using Core.Model.Interface;
-using Core.ObjectMapper.Extensions;
+using Base.Model.Interface;
+using Base.ObjectMapper.Extension;
 using Core.Rds.Interface;
 using Shared.FileService.v1.App.DbRequests;
 using Shared.FileService.v1.App.Services.Interfaces;

@@ -1,7 +1,7 @@
+using Base.Extension;
 using Core.Configuration.ConfigurationConnectors;
 using Core.Caching.Redis.ConnectorModels;
 using Core.Configuration.Interface;
-using Core.Extension;
 using Core.Model;
 
 namespace Core.Caching.Redis.ConfigurationConnectors;

@@ -1,5 +1,5 @@
 using System.ComponentModel;
-using Core.Model.Interface;
+using Base.Model.Interface;
 
 namespace Core.Attribute;
 

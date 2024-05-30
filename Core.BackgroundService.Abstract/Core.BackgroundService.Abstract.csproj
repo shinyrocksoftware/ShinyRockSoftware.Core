@@ -21,7 +21,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Core.BackgroundService.Interface\Core.BackgroundService.Interface.csproj" />
-        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
+        <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
         <ProjectReference Include="..\Core.Helper.Interface\Core.Helper.Interface.csproj" />
     </ItemGroup>
 

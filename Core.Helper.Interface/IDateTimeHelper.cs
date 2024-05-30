@@ -1,4 +1,4 @@
-﻿using Core.Model.Interface;
+﻿using Base.Model.Interface;
 
 namespace Core.Helper.Interface;
 

@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Core.Model.Interface.ApiResponses;
+using Base.Model.Interface.ApiResponses;
 
 namespace Core.Model.ApiResponses;
 

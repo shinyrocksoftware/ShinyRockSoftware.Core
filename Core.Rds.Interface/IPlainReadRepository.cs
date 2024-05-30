@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
-using Core.Model.Interface;
-using Core.Model.Interface.Entities;
+using Base.Model.Interface;
+using Base.Model.Interface.Entities;
 using Microsoft.EntityFrameworkCore.Query;
 
 namespace Core.Rds.Interface;

@@ -1,5 +1,5 @@
 using Core.Attribute.AutoInjection;
-using Core.Extension;
+using Base.Extension;
 using Core.Caching.Interface;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;

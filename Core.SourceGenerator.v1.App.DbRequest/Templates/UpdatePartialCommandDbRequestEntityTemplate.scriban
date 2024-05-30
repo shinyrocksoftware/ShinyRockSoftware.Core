@@ -10,7 +10,7 @@
 
 using {{ClientNamespace}}.App.Features.Events;
 using Core.Model.Abstract.DbRequests.Partial;
-using Core.Model.Interface.DbRequests;
+using Base.Model.Interface.DbRequests;
 
 namespace {{ClientNamespace}}.App.DbRequests;
 

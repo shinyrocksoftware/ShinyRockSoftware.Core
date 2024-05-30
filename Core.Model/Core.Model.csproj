@@ -13,10 +13,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
-        <ProjectReference Include="..\Core.Constant\Core.Constant.csproj" />
+        <ProjectReference Include="..\Base.Constant\Base.Constant.csproj" />
+        <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
+        <ProjectReference Include="..\Base.Model.Interface\Base.Model.Interface.csproj" />
         <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
-        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
     </ItemGroup>
 
 </Project>

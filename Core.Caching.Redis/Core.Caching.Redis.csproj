@@ -21,6 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
         <ProjectReference Include="..\Core.Attribute\Core.Attribute.csproj" />
         <ProjectReference Include="..\Core.Caching.Interface\Core.Caching.Interface.csproj" />
         <ProjectReference Include="..\Core.Configuration\Core.Configuration.csproj" />

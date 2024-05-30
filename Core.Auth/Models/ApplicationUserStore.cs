@@ -1,5 +1,5 @@
+using Base.Extension;
 using Core.Auth.Entities;
-using Core.Extension;
 using Core.Rds.Interface;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

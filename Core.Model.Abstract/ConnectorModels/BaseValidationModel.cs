@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Core.Extension;
+using Base.Extension;
 
 namespace Core.Model.Abstract.ConnectorModels;
 

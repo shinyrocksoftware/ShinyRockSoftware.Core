@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
+        <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
         <ProjectReference Include="..\Core.Attribute\Core.Attribute.csproj" />
         <ProjectReference Include="..\Core.Caching.Interface\Core.Caching.Interface.csproj" />
     </ItemGroup>

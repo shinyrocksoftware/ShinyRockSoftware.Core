@@ -1,6 +1,6 @@
-using Core.Model.Interface.Entities;
-using Core.Model.Interface.MediatorEvents;
-using Core.ObjectMapper.Extensions;
+using Base.Model.Interface.Entities;
+using Base.Model.Interface.MediatorEvents;
+using Base.ObjectMapper.Extension;
 
 namespace Core.Model.Abstract.DbRequests;
 

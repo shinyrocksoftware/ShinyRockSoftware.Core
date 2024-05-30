@@ -1,5 +1,5 @@
 ﻿using Core.Model.Abstract.DbRequests;
-using Core.Model.Interface.DbRequests;
+using Base.Model.Interface.DbRequests;
 
 namespace {{ClientNamespace}}.App.DbRequests;
 

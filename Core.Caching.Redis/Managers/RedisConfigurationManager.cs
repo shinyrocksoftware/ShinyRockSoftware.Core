@@ -1,6 +1,6 @@
-﻿using Core.Caching.Interface;
+﻿using Base.Extension;
+using Core.Caching.Interface;
 using Core.Configuration.Interface;
-using Core.Extension;
 using Core.Model;
 
 namespace Core.Caching.Redis.Managers;

@@ -1,5 +1,5 @@
-﻿using Core.Model.Interface.DbRequests;
-using Core.Model.Interface.Entities;
+﻿using Base.Model.Interface.DbRequests;
+using Base.Model.Interface.Entities;
 
 namespace Core.Model.Abstract.MediatorRequests;
 

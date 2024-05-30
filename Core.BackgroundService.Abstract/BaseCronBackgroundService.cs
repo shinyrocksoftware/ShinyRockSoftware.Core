@@ -1,4 +1,4 @@
-﻿using Core.Extension;
+﻿using Base.Extension;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Quartz;

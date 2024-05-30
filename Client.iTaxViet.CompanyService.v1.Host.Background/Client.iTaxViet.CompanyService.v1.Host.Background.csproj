@@ -36,7 +36,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="Tests\http-client.env.json" />
+        <_ContentIncludedByDefault Remove="Tests\http-client.env.json" />
     </ItemGroup>
 
 </Project>

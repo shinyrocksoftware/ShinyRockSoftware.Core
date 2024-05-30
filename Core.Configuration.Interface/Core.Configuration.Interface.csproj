@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Base.Model.Interface\Base.Model.Interface.csproj" />
     </ItemGroup>
 
 </Project>

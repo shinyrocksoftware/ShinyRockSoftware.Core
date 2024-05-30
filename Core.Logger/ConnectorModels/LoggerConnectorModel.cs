@@ -1,6 +1,6 @@
 using Core.Attribute;
 using Core.Configuration.Interface;
-using Core.Extension;
+using Base.Extension;
 using Core.Model.Abstract.ConnectorModels;
 
 namespace Core.Logger.ConnectorModels;

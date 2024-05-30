@@ -1,6 +1,6 @@
-using Core.Model.Interface.DbRequests;
-using Core.Model.Interface.Entities;
-using Core.ObjectMapper.Extensions;
+using Base.Model.Interface.DbRequests;
+using Base.Model.Interface.Entities;
+using Base.ObjectMapper.Extension;
 
 namespace Core.Model.Abstract.DbRequests;
 

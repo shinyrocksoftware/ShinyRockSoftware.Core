@@ -1,6 +1,6 @@
 ﻿using Core.Helper.Interface;
-using Core.Model.Interface;
-using Core.Model.Interface.Entities;
+using Base.Model.Interface;
+using Base.Model.Interface.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Core.Rds.Abstract.Repositories;

@@ -26,7 +26,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Core.Configuration\Core.Configuration.csproj" />
-        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
+        <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
         <ProjectReference Include="..\Core.Logger.Interface\Core.Logger.Interface.csproj" />
         <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
     </ItemGroup>

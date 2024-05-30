@@ -6,7 +6,7 @@
 // </auto-generated>
 //---------------------------------------------------------------------------------------------------
 
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Core.Stream.Interface;
 
 namespace {{ClientNamespace}}.Stream.StreamJobs.Interfaces;

@@ -1,4 +1,4 @@
-using Core.Model.Interface.ApiRequests;
+using Base.Model.Interface.ApiRequests;
 
 namespace Core.Model.Abstract.ApiRequests;
 

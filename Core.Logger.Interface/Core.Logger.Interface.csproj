@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Core.Configuration\Core.Configuration.csproj" />
+        <ProjectReference Include="..\Core.Configuration.Interface\Core.Configuration.Interface.csproj" />
     </ItemGroup>
 
     <ItemGroup>

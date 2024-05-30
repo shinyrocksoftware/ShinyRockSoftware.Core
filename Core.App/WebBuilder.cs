@@ -1,11 +1,11 @@
-﻿using Core.App.Middlewares;
+﻿using Base.Extension;
+using Core.App.Middlewares;
 using Core.App.ModelConventions;
 using Core.Attribute.ActionFilters;
 using Core.Caching.Redis.Extensions;
 using Core.Configuration.Extensions;
 using Core.Configuration.Factories;
 using Core.Doc.Swashbuckle.Extensions;
-using Core.Extension;
 using Core.Logger.Extensions;
 using Core.Mediator.Extensions;
 using Core.ObjectMapper.Extensions;

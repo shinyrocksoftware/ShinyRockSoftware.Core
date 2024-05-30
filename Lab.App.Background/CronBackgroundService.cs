@@ -1,6 +1,6 @@
-﻿using Core.BackgroundService.Abstract;
+﻿using Base.Extension;
+using Core.BackgroundService.Abstract;
 using Core.BackgroundService.Interface;
-using Core.Extension;
 
 namespace Lab.App.Background;
 

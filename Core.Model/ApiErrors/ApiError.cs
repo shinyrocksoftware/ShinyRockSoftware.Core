@@ -1,5 +1,5 @@
-using Core.Constant;
-using Core.Model.Interface.ApiErrors;
+using Base.Constant;
+using Base.Model.Interface.ApiErrors;
 
 namespace Core.Model.ApiErrors;
 

@@ -1,4 +1,5 @@
-﻿using Core.ObjectMapper.Profiles;
+﻿using Base.Extension;
+using Core.ObjectMapper.Abstract.Profiles;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Core.ObjectMapper.Extensions;
@@ -10,7 +11,7 @@ public static class ServiceCollectionExtensions
         assemblies = assemblies is not null && assemblies.Any() ? assemblies : [Assembly.GetEntryAssembly()];
         foreach (var assembly in assemblies)
         {
-            var profileTypes = assembly?.GetTypes().Where(t => t.IsSubclassOfGeneric(typeof(MapperProfile<,>)) && !t.IsAbstract);
+            var profileTypes = assembly?.GetTypes().Where(t => t.IsSubclassOfGeneric(typeof(BaseMapperProfile<,>)));
 
             if (profileTypes != null)
             {

@@ -1,4 +1,4 @@
-﻿using Core.Extension;
+﻿using Base.Extension;
 using Microsoft.AspNetCore.Identity;
 
 namespace Core.Auth.Models;

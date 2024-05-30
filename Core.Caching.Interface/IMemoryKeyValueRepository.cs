@@ -1,4 +1,4 @@
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Core.Caching.Interface;

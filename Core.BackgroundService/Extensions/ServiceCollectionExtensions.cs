@@ -1,7 +1,7 @@
 ﻿using Core.BackgroundService.Interface;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Core.Job.Extensions;
+namespace Core.BackgroundService.Extensions;
 
 public static class ServiceCollectionExtensions
 {

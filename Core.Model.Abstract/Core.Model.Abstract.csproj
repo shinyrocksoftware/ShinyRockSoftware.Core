@@ -17,9 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Core.Extension\Core.Extension.csproj" />
-        <ProjectReference Include="..\Core.ObjectMapper\Core.ObjectMapper.csproj" />
-        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
+        <ProjectReference Include="..\Base.ObjectMapper.Extension\Base.ObjectMapper.Extension.csproj" />
+        <ProjectReference Include="..\Base.Model.Interface\Base.Model.Interface.csproj" />
     </ItemGroup>
 
 </Project>

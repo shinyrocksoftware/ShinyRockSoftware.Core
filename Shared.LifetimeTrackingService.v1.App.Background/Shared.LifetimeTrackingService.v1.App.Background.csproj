@@ -15,7 +15,7 @@
     <ItemGroup>
         <ProjectReference Include="..\App.Background.Abstract\App.Background.Abstract.csproj" />
         <ProjectReference Include="..\Core.Attribute\Core.Attribute.csproj" />
-        <ProjectReference Include="..\Core.Model.Interface\Core.Model.Interface.csproj" />
+        <ProjectReference Include="..\Base.Model.Interface\Base.Model.Interface.csproj" />
         <ProjectReference Include="..\Core.Stream.Abstract\Core.Stream.Abstract.csproj" />
         <ProjectReference Include="..\Core.Stream.Interface\Core.Stream.Interface.csproj" />
         <ProjectReference Include="..\Core.SourceGenerator.v1.App.Background\Core.SourceGenerator.v1.App.Background.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />

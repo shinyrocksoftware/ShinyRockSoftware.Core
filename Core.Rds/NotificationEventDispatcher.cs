@@ -1,6 +1,6 @@
 ﻿using Core.Attribute.AutoInjection;
-using Core.Model.Interface;
-using Core.Model.Interface.Entities;
+using Base.Model.Interface;
+using Base.Model.Interface.Entities;
 using Core.Stream.Interface;
 using MediatR;
 

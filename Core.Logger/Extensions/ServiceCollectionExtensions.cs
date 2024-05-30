@@ -1,7 +1,7 @@
 ﻿using Core.Configuration.Interface;
 using Core.Configuration.ConnectorModels;
 using Core.Configuration.Extensions;
-using Core.Constant;
+using Base.Constant;
 using Core.Helper;
 using Core.Logger.ConfigurationConnectors;
 using Core.Logger.ConnectorModels;

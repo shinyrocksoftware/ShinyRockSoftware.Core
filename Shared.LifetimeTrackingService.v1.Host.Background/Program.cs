@@ -1,5 +1,5 @@
 using App.Rest.PostgreSql;
-using Core.Job.Extensions;
+using Core.BackgroundService.Extensions;
 using Shared.LifetimeTrackingService.v1.App.Background;
 using Shared.LifetimeTrackingService.v1.App.Background.BackgroundServices;
 

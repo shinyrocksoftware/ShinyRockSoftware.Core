@@ -1,8 +1,8 @@
-﻿using Core.Auth.DbRequests;
+﻿using Base.Extension;
+using Core.Auth.DbRequests;
 using Core.Auth.Entities;
 using Core.Auth.Interfaces;
-using Core.Extension;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Core.Rds.DbContexts;
 using Core.Rds.Repositories;
 using Microsoft.EntityFrameworkCore.Query;

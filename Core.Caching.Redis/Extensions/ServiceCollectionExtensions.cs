@@ -4,7 +4,7 @@ using Core.Caching.Redis.Managers;
 using Core.Caching.Redis.Models;
 using Core.Configuration.Extensions;
 using Core.Configuration.Interface;
-using Core.Constant;
+using Base.Constant;
 using Core.Helper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

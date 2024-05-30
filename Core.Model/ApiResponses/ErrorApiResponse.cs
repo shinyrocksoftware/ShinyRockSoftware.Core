@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
-using Core.Extension;
+using Base.Extension;
 using Core.Model.ApiErrors;
-using Core.Model.Interface.ApiErrors;
-using Core.Model.Interface.ApiResponses;
+using Base.Model.Interface.ApiErrors;
+using Base.Model.Interface.ApiResponses;
 
 namespace Core.Model.ApiResponses;
 

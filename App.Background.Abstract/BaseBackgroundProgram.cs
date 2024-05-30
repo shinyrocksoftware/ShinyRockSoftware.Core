@@ -1,6 +1,6 @@
 using Core.App;
+using Core.BackgroundService.Extensions;
 using Core.BackgroundService.Interface;
-using Core.Job.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

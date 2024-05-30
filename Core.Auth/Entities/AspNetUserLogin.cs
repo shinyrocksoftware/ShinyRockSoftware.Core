@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Core.Model.Abstract.Entities;
-using Core.Model.Interface.Entities;
+using Base.Model.Interface.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Core.Auth.Entities;

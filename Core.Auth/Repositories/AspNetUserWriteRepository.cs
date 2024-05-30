@@ -1,6 +1,6 @@
 using Core.Auth.Entities;
 using Core.Auth.Interfaces;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Core.Rds.DbContexts;
 using Core.Rds.Repositories;
 

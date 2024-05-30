@@ -1,5 +1,5 @@
 ﻿using Core.Model.Abstract.ConnectorModels;
-using Core.Model.Interface;
+using Base.Model.Interface;
 using Microsoft.Extensions.Options;
 
 namespace Core.Configuration.ConfigurationConnectors;

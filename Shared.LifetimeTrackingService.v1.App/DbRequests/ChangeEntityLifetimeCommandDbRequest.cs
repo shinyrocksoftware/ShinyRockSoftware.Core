@@ -1,5 +1,5 @@
 using Core.Model.Abstract.DbRequests;
-using Core.Model.Interface.DbRequests;
+using Base.Model.Interface.DbRequests;
 
 namespace Shared.LifetimeTrackingService.v1.App.DbRequests;
 

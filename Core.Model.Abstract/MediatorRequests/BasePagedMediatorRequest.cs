@@ -1,5 +1,5 @@
-using Core.Model.Interface;
-using Core.Model.Interface.Entities;
+using Base.Model.Interface;
+using Base.Model.Interface.Entities;
 using MediatR;
 
 namespace Core.Model.Abstract.MediatorRequests;
