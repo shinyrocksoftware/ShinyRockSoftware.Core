@@ -5,20 +5,11 @@ using Core.Model;
 
 namespace Core.Caching.Redis.Managers;
 
-public class RedisConfigurationManager : IConfigurationManager
+public class RedisConfigurationManager(string serviceRedisKey, IRedisRepository redisRepository) : IConfigurationManager
 {
-    private readonly string _serviceRedisKey;
-    private readonly IRedisRepository _redisRepository;
-
-    public RedisConfigurationManager(string serviceRedisKey, IRedisRepository redisRepository)
-    {
-        _serviceRedisKey = serviceRedisKey;
-        _redisRepository = redisRepository;
-    }
-
     public void UpdateConfigurations(IDictionary<string, string> updates)
     {
-        var configurations = _redisRepository.GetDictionary(_serviceRedisKey);
+        var configurations = redisRepository.GetDictionary(serviceRedisKey);
 
         if (updates.IsNotNullNorEmpty())
         {
@@ -27,7 +18,7 @@ public class RedisConfigurationManager : IConfigurationManager
                 configurations[config.Key] = config.Value;
             }
 
-            _redisRepository.SetDictionary(_serviceRedisKey, configurations.ToDictionary());
+            redisRepository.SetDictionary(serviceRedisKey, configurations.ToDictionary());
 
             LockModel.Configurations = configurations;
         }
@@ -35,20 +26,20 @@ public class RedisConfigurationManager : IConfigurationManager
 
     public void DeleteConfiguration(string key)
     {
-        var configurations = _redisRepository.GetDictionary(_serviceRedisKey);
+        var configurations = redisRepository.GetDictionary(serviceRedisKey);
 
         if (configurations.ContainsKey(key))
         {
             configurations.Remove(key);
         }
 
-        _redisRepository.SetDictionary(_serviceRedisKey, configurations.ToDictionary());
+        redisRepository.SetDictionary(serviceRedisKey, configurations.ToDictionary());
 
         LockModel.Configurations = configurations;
     }
 
     public IDictionary<string, string> GetConfigurations()
     {
-        return _redisRepository.GetDictionary(_serviceRedisKey);
+        return redisRepository.GetDictionary(serviceRedisKey);
     }
 }

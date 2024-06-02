@@ -7,7 +7,7 @@ namespace Core.SourceGenerator.v1.Generators.MainGenerator;
 
 public class MainSyntaxContextReceiver : ISyntaxContextReceiver
 {
-	public List<SourceModel> Models { get; set; } = new ();
+	public List<SourceModel> Models { get; set; } = [];
 
 	/// <summary>
 	/// Called for every syntax node in the compilation, we can inspect the nodes and save any information useful for generation

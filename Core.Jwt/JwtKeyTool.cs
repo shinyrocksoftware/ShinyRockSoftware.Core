@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace Core.Jwt;
 
 [SingletonAutoInjection]
-internal class JwtHelper(ILogger<JwtHelper> logger, IConnectorModelHelper connectorModelHelper) : IJwtHelper
+internal class JwtKeyTool(ILogger<JwtKeyTool> logger, IConnectorModelHelper connectorModelHelper) : IJwtKeyTool
 {
 	private readonly ILogger _logger = logger;
 	private readonly JwtConnectorModel _connectorModel = connectorModelHelper.GetConnector<JwtConnectorModel>();

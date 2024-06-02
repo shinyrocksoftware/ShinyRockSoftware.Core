@@ -12,7 +12,7 @@ public static class TemplateRenderer
         if (template.HasErrors)
         {
             var errors = string.Join(" | ", template.Messages.Select(x => x.Message));
-            throw new InvalidOperationException($"Template parse error: {template.Messages}");
+            throw new InvalidOperationException($"Template parse error: {errors}");
         }
 
         var result = template.Render(model, member => member.Name);
@@ -23,6 +23,8 @@ public static class TemplateRenderer
     {
         var templateString = ResourceReader.GetResource(templateName, assemblyType);
 
-        return Parse(templateString, model);
+        return templateString == null
+            ? string.Empty
+            : Parse(templateString, model);
     }
 }

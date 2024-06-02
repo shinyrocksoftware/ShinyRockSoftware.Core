@@ -21,7 +21,7 @@ public static class CodeAnalysisExtensions
 		return type.GetBaseTypesAndThis().SelectMany(n => n.GetMembers());
 	}
 
-	public static CompilationUnitSyntax GetCompilationUnit(this SyntaxNode syntaxNode)
+	public static CompilationUnitSyntax? GetCompilationUnit(this SyntaxNode syntaxNode)
 	{
 		return syntaxNode.Ancestors().OfType<CompilationUnitSyntax>().FirstOrDefault();
 	}
@@ -36,25 +36,27 @@ public static class CodeAnalysisExtensions
 		return syntax.Modifiers.ToFullString().Trim();
 	}
 
-	public static IEnumerable<EntityPropertyDescriptor> GetProperties(this ClassDeclarationSyntax syntax, SemanticModel semanticModel)
+	public static IEnumerable<EntityPropertyDescriptor?> GetProperties(this ClassDeclarationSyntax syntax, SemanticModel semanticModel)
 	{
 		return syntax.Members.Select(c => c as PropertyDeclarationSyntax)
-		             .Select(property =>
+		             .Select(propertyDeclarationSyntax =>
 		             {
-			             var type = property.Type.ToString();
-			             var attributes = property.AttributeLists.SelectMany(attributeList => attributeList.Attributes, (_, attributeSyntax) => new EntityAttributeDescriptor
+			             if (propertyDeclarationSyntax == null) return null;
+
+			             var type = propertyDeclarationSyntax.Type.ToString();
+			             var attributes = propertyDeclarationSyntax.AttributeLists.SelectMany(attributeList => attributeList.Attributes, (_, attributeSyntax) => new EntityAttributeDescriptor
 			             {
 				             Name = attributeSyntax.Name.ToString()
-				             , Values = attributeSyntax.ArgumentList?.Arguments.Select(x => x.Expression.ToFullString()) ?? Enumerable.Empty<string>()
+				             , Values = attributeSyntax.ArgumentList?.Arguments.Select(x => x.Expression.ToFullString()) ?? []
 			             });
 
 			             var dbType = type.GetDbType(attributes);
 
 			             return dbType == string.Empty ? null : new EntityPropertyDescriptor
 			             {
-				             Name = property.Identifier.Text
+				             Name = propertyDeclarationSyntax.Identifier.Text
 				             , Type = type
-				             , NullableType = property.Type is NullableTypeSyntax ? type : $"{property.Type}?"
+				             , NullableType = propertyDeclarationSyntax.Type is NullableTypeSyntax ? type : $"{propertyDeclarationSyntax.Type}?"
 				             , DbType = type.GetDbType(attributes)
 				             , Required = type.GetRequired(attributes)
 				             , Attributes = attributes
@@ -66,11 +68,13 @@ public static class CodeAnalysisExtensions
 	public static bool HaveAttribute(this ClassDeclarationSyntax classSyntax, string attributeName)
 	{
 		return classSyntax.AttributeLists.Count > 0 &&
-		       classSyntax.AttributeLists.SelectMany(al => al.Attributes.Where(a => (a.Name as IdentifierNameSyntax).Identifier.Text == attributeName)).Any();
+		       classSyntax.AttributeLists.SelectMany(al => al.Attributes.Where(a => (a.Name as IdentifierNameSyntax)?.Identifier.Text == attributeName)).Any();
 	}
 
-	public static string GetNamespace(this CompilationUnitSyntax root)
+	public static string GetNamespace(this CompilationUnitSyntax? root)
 	{
+		if (root == null) return string.Empty;
+
 		var namespaceDeclarationSyntax = root.ChildNodes().OfType<NamespaceDeclarationSyntax>();
 
 		if (namespaceDeclarationSyntax.Any())
@@ -85,23 +89,20 @@ public static class CodeAnalysisExtensions
 			: string.Empty;
 	}
 
-	public static List<string> GetUsings(this CompilationUnitSyntax root)
+	public static IEnumerable<string?> GetUsings(this CompilationUnitSyntax root)
 	{
 		return root.ChildNodes()
 		           .OfType<UsingDirectiveSyntax>()
-		           .Select(n => n.Name.ToString())
-		           .ToList();
+		           .Select(n => n.Name?.ToString());
 	}
 
 	private static bool GetRequired(this string dotnetType, IEnumerable<EntityAttributeDescriptor> propertyDescriptorAttributes)
 	{
-		switch (dotnetType)
+		return dotnetType switch
 		{
-			case "string?":
-				return false;
-			default:
-				return propertyDescriptorAttributes.Any(c => c.Name == "Required");
-		}
+			"string?" => false
+			, _ => propertyDescriptorAttributes.Any(c => c.Name == "Required")
+		};
 	}
 
 	private static string GetDbType(this string dotnetType, IEnumerable<EntityAttributeDescriptor> propertyDescriptorAttributes)

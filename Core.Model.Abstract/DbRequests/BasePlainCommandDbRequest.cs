@@ -9,12 +9,7 @@ public abstract class BasePlainCommandDbRequest<T, TE> : BaseDbRequest
 {
 	public T? Id { get; set; }
 
-	public virtual TE ToEntity()
-	{
-		var entity = this.To<TE>();
-
-		return entity;
-	}
+	public virtual TE ToEntity() => this.To<TE>();
 }
 
 public abstract class BasePlainCommandDbRequest<T, TE, TBE> : BaseDbRequest
@@ -27,7 +22,7 @@ public abstract class BasePlainCommandDbRequest<T, TE, TBE> : BaseDbRequest
 	{
 		var entity = this.To<TE>();
 
-		entity?.AddNotificationEvent(new TBE());
+		entity.AddNotificationEvent(new TBE());
 
 		return entity;
 	}

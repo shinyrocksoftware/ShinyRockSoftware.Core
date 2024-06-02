@@ -7,5 +7,5 @@ public class EntityModel : MainModel
     public string EntityName { get; set; }
     public string EntityNamePlural { get; set; }
     public string EntityLifeCycleEvent { get; set; }
-    public IList<EntityPropertyDescriptor> Properties { get; set; }
+    public List<EntityPropertyDescriptor?> Properties { get; set; }
 }

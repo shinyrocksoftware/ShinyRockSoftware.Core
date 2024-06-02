@@ -3,7 +3,7 @@ using Base.Model.Interface;
 
 namespace Core.Jwt.Interface;
 
-public interface IJwtHelper : IAutoInjection
+public interface IJwtKeyTool : IAutoInjection
 {
     /// <summary>
     /// Symmetric decode token using secretKey in the configuration

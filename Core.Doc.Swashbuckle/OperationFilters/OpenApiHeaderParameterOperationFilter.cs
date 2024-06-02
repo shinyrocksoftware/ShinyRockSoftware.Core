@@ -3,22 +3,15 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Core.Doc.Swashbuckle.OperationFilters;
 
-public class OpenApiHeaderParameterOperationFilter : IOperationFilter
+public class OpenApiHeaderParameterOperationFilter(string headerName) : IOperationFilter
 {
-    private readonly string _headerName;
-
-    public OpenApiHeaderParameterOperationFilter(string headerName)
-    {
-        _headerName = headerName;
-    }
-
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
     {
         if (operation != null)
         {
             var parameter = new OpenApiParameter
             {
-                Name = _headerName
+                Name = headerName
                 , In = ParameterLocation.Header
                 , Schema = new()
                 {

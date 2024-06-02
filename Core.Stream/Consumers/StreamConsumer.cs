@@ -10,16 +10,10 @@ using Microsoft.Extensions.Logging;
 namespace Core.Stream.Consumers;
 
 [ScopedAutoInjection]
-internal class StreamConsumer : IStreamConsumer
+internal class StreamConsumer(ILogger<StreamConsumer> logger, IConnectorModelHelper connectorModelHelper) : IStreamConsumer
 {
-	private readonly ILogger _logger;
-	private readonly KafkaConnectorModel _kafkaConnectorModel;
-
-	public StreamConsumer(ILogger<StreamConsumer> logger, IConnectorModelHelper connectorModelHelper)
-	{
-		_logger = logger;
-		_kafkaConnectorModel = connectorModelHelper.GetConnector<KafkaConnectorModel>();
-	}
+	private readonly ILogger _logger = logger;
+	private readonly KafkaConnectorModel _kafkaConnectorModel = connectorModelHelper.GetConnector<KafkaConnectorModel>();
 
 	public async Task ConsumeAsync(string groupId, string topic, Func<IStreamMessage, Task> consumeAction)
 	{

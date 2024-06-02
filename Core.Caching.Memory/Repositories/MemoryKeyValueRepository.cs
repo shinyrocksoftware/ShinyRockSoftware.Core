@@ -10,13 +10,13 @@ namespace Core.Caching.Memory.Repositories;
 internal class MemoryKeyValueRepository(IOptions<MemoryCacheOptions> optionsAccessor)
     : MemoryCache(optionsAccessor), IMemoryKeyValueRepository
 {
-    public T Get<T>(string key)
+    public T? Get<T>(string key)
     {
         TryGetValue(key, out var result);
         return result == null ? default : result.ToString().Deserialize<T>();
     }
 
-    public async Task<T> GetAsync<T>(string key)
+    public async Task<T?> GetAsync<T>(string key)
     {
         return await Task.Factory.StartNew(() => Get<T>(key));
     }

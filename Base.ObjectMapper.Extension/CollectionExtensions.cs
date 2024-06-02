@@ -6,7 +6,7 @@ public static class CollectionExtensions
 {
     public static IEnumerable<TV> Map<T, TV>(this IEnumerable<T> source)
     {
-        return source == null ? Enumerable.Empty<TV>() : source.Select(item => Mapper.Map<TV>(item));
+        return source == null ? [] : source.Select(item => Mapper.Map<TV>(item));
     }
         
     public static ICollection<TV> Map<T, TV>(this ICollection<T> source)

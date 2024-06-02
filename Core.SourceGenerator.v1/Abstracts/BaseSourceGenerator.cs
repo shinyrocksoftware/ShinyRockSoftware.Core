@@ -19,7 +19,7 @@ public abstract class BaseSourceGenerator : ISourceGenerator
 
 	public void Execute(GeneratorExecutionContext context)
 	{
-		if (context.SyntaxContextReceiver is not ISyntaxContextReceiver receiver)
+		if (context.SyntaxContextReceiver is not { } receiver)
 			return;
 
 		// if (GenerateRegistrations == null)

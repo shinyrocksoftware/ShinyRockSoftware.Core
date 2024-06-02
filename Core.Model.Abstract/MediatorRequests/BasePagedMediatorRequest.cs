@@ -4,15 +4,9 @@ using MediatR;
 
 namespace Core.Model.Abstract.MediatorRequests;
 
-public abstract class BasePagedMediatorRequest<T, TEO> : IRequest<IEnumerablePage<TEO>>
+public abstract class BasePagedMediatorRequest<T, TEO>(int pageNumber, int pageSize) : IRequest<IEnumerablePage<TEO>>
 	where TEO : IEntityDto<T>, new()
 {
-	public int PageNumber { get; set; }
-	public int PageSize { get; set; }
-
-	public BasePagedMediatorRequest(int pageNumber, int pageSize)
-	{
-		PageNumber = pageNumber;
-		PageSize = pageSize;
-	}
+	public int PageNumber { get; set; } = pageNumber;
+	public int PageSize { get; set; } = pageSize;
 }

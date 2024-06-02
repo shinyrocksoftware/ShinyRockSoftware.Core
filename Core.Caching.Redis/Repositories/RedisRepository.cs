@@ -7,7 +7,7 @@ using StackExchange.Redis.Extensions.Core.Abstractions;
 namespace Core.Caching.Redis.Repositories;
 
 [ScopedAutoInjection]
-internal class RedisRepository : IRedisRepository
+internal class RedisRepository(ILogger<RedisRepository> logger, IRedisDatabase redisDatabase) : IRedisRepository
 {
     private readonly string[] _skipKeys =
     [
@@ -15,37 +15,30 @@ internal class RedisRepository : IRedisRepository
         , "sldexp"
     ];
 
-    private readonly ILogger _logger;
-    private readonly IRedisDatabase _redisDatabase;
-
-    public RedisRepository(ILogger<RedisRepository> logger, IRedisDatabase redisDatabase)
-    {
-        _logger = logger;
-        _redisDatabase = redisDatabase;
-    }
+    private readonly ILogger _logger = logger;
 
     public bool IsConnected()
     {
-        return _redisDatabase.Database.Multiplexer.IsConnected;
+        return redisDatabase.Database.Multiplexer.IsConnected;
     }
 
     public async Task<string> GetAsync(string key)
     {
-        return await _redisDatabase.GetAsync<string>(GetKey(key));
+        return await redisDatabase.GetAsync<string>(GetKey(key));
     }
 
     public async Task<IEnumerable<string>> GetKeysAsync(string pattern)
     {
         var key = $"{pattern}*";
 
-        return await GetInternalAsync(key, async () => await _redisDatabase.SearchKeysAsync(GetKey(key)));
+        return await GetInternalAsync(key, async () => await redisDatabase.SearchKeysAsync(GetKey(key)));
     }
 
     public IDictionary<string, string> GetDictionary(string key)
     {
         return GetInternal(key, () =>
         {
-            var result = _redisDatabase.HashGetAllAsync<string>(GetKey(key)).GetAwaiter().GetResult();
+            var result = redisDatabase.HashGetAllAsync<string>(GetKey(key)).GetAwaiter().GetResult();
             return result.Where(c => !_skipKeys.ContainsCI(c.Key)).ToDictionary(x => x.Key, x => x.Value);
         });
     }
@@ -54,7 +47,7 @@ internal class RedisRepository : IRedisRepository
     {
         return await GetInternalAsync(hashKey, async () =>
         {
-            var result = await _redisDatabase.HashGetAllAsync<string>(GetKey(hashKey));
+            var result = await redisDatabase.HashGetAllAsync<string>(GetKey(hashKey));
             return result.Where(c => !_skipKeys.ContainsCI(c.Key)).ToDictionary(x => x.Key, x => x.Value);
         });
     }
@@ -63,7 +56,7 @@ internal class RedisRepository : IRedisRepository
     {
 	    return await (_skipKeys.ContainsCI(hashKey)
 		    ? Task.FromResult(string.Empty)
-		    : GetInternalAsync(hashKey, async () => await _redisDatabase.HashGetAsync<string>(GetKey(hashKey), GetKey(dictionaryKey))));
+		    : GetInternalAsync(hashKey, async () => await redisDatabase.HashGetAsync<string>(GetKey(hashKey), GetKey(dictionaryKey))));
     }
 
     public void SetDictionary(string hashKey, Dictionary<string, string> dictionary, DateTimeOffset? expiresAt = null)
@@ -74,10 +67,10 @@ internal class RedisRepository : IRedisRepository
 
         if (expiresAt.HasValue)
         {
-            tasks.Add(_redisDatabase.UpdateExpiryAsync(key, DateTimeOffset.UtcNow.AddDays(-1)));
+            tasks.Add(redisDatabase.UpdateExpiryAsync(key, DateTimeOffset.UtcNow.AddDays(-1)));
         }
 
-        tasks.Add(_redisDatabase.HashSetAsync(key, dictionary));
+        tasks.Add(redisDatabase.HashSetAsync(key, dictionary));
 
         Task.WhenAll(tasks).GetAwaiter().GetResult();
     }
@@ -87,10 +80,10 @@ internal class RedisRepository : IRedisRepository
         var key = GetKey(hashKey);
         if (expiresAt.HasValue)
         {
-            await _redisDatabase.UpdateExpiryAsync(key, expiresAt.Value);
+            await redisDatabase.UpdateExpiryAsync(key, expiresAt.Value);
         }
 
-        await _redisDatabase.HashSetAsync(key, dictionary);
+        await redisDatabase.HashSetAsync(key, dictionary);
     }
 
     public async Task SetDictionaryValueAsync(string hashKey, string dictionaryKey, string value, DateTimeOffset? expiresAt = null)
@@ -123,7 +116,7 @@ internal class RedisRepository : IRedisRepository
 
     public async Task RemoveAsync(string key)
     {
-        await _redisDatabase.RemoveAsync(GetKey(key));
+        await redisDatabase.RemoveAsync(GetKey(key));
     }
 
     public async Task RemoveDictionaryValueAsync(string hashKey, string dictionaryKey)
@@ -145,39 +138,39 @@ internal class RedisRepository : IRedisRepository
 
     public bool KeyExist(string key)
     {
-        return _redisDatabase.ExistsAsync(GetKey(key)).GetAwaiter().GetResult();
+        return redisDatabase.ExistsAsync(GetKey(key)).GetAwaiter().GetResult();
     }
 
     public T Get<T>(string key)
     {
-        return GetInternal(key, () => _redisDatabase.GetAsync<T>(GetKey(key)).GetAwaiter().GetResult());
+        return GetInternal(key, () => redisDatabase.GetAsync<T>(GetKey(key)).GetAwaiter().GetResult());
     }
 
     public async Task<T> GetAsync<T>(string key)
     {
-        return await GetInternalAsync(key, async () => await _redisDatabase.GetAsync<T>(GetKey(key)));
+        return await GetInternalAsync(key, async () => await redisDatabase.GetAsync<T>(GetKey(key)));
     }
 
     public void Set<T>(string key, T value)
     {
-        _redisDatabase.AddAsync(GetKey(key), value).GetAwaiter().GetResult();
+        redisDatabase.AddAsync(GetKey(key), value).GetAwaiter().GetResult();
     }
 
     public async Task SetAsync<T>(string key, T value, DateTimeOffset? expiresAt = null)
     {
         if (expiresAt.HasValue)
         {
-            await _redisDatabase.AddAsync(GetKey(key), value, expiresAt.Value);
+            await redisDatabase.AddAsync(GetKey(key), value, expiresAt.Value);
         }
         else
         {
-            await _redisDatabase.AddAsync(GetKey(key), value);
+            await redisDatabase.AddAsync(GetKey(key), value);
         }
     }
 
     public async Task SetAsync<T>(string key, T value, TimeSpan ttlInMinutes)
     {
-        await _redisDatabase.AddAsync(GetKey(key), value, ttlInMinutes);
+        await redisDatabase.AddAsync(GetKey(key), value, ttlInMinutes);
     }
 
     private T GetInternal<T>(string key, Func<T> func)

@@ -1,12 +1,12 @@
 ﻿using System.Text.Json;
 using Base.Extension;
-using Core.Caching.Redis.Extensions;
-using Microsoft.Extensions.DependencyInjection;
+using Base.Model.Interface;
 using Core.App;
 using Core.Caching.Interface;
-using Base.Model.Interface;
+using Core.Caching.Redis.Extensions;
 using Core.Stream.Extensions;
 using Core.Stream.Interface;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using static System.Console;
 
@@ -35,7 +35,7 @@ class Program
 		// return;
 
 		// Kafka
-		var serviceProvider = AppBuilder.CreateDefaultConsoleApplication(new [] {"Lab"}, (configuration, services) =>
+		var serviceProvider = AppBuilder.CreateDefaultConsoleApplication(["Lab"], (configuration, services) =>
 		{
 			services.AddKafka(configuration);
 		}).Services;
@@ -64,7 +64,7 @@ class Program
 		return;
 
 		// Redis
-		serviceProvider = AppBuilder.CreateDefaultConsoleApplication(new [] {"Lab"}, (configuration, services) =>
+		serviceProvider = AppBuilder.CreateDefaultConsoleApplication(["Lab"], (configuration, services) =>
 		{
 			services.AddRedis(configuration);
 		}).Services;
@@ -152,7 +152,7 @@ public abstract class ClassInterceptor<TInterface> : DispatchProxy
 		var interceptor = typeof(DispatchProxy)
 		                  .GetMethod("Create")
 		                  ?.MakeGenericMethod(typeof(TInterface), GetType())
-		                  .Invoke(null, Array.Empty<object>());
+		                  .Invoke(null, []);
 		if (interceptor is ClassInterceptor<TInterface> proxy)
 		{
 			proxy._decorated = decorated;

@@ -70,7 +70,7 @@ public static class ServiceCollectionExtensions
 		var scanningAssemblies = assemblies == null ? new List<Assembly>
 		{
 			Assembly.GetCallingAssembly()
-		} : new();
+		} : [];
 
 		string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 		scanningAssemblies.AddRange(Directory.GetFiles(assemblyFolder, "*.dll").Select(Assembly.LoadFrom));

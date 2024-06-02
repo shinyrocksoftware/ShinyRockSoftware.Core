@@ -3,16 +3,9 @@ using Base.Model.Interface;
 
 namespace Core.Stream.Models;
 
-public class StreamMessage : IStreamMessage
+public class StreamMessage(ConsumeResult<Ignore, string> consumeResult) : IStreamMessage
 {
-	public string Topic { get; set; }
-	public string Value { get; set; }
-	public DateTime Timestamp { get; set; }
-
-	public StreamMessage(ConsumeResult<Ignore, string> consumeResult)
-	{
-		Topic = consumeResult.Topic;
-		Value = consumeResult.Message.Value;
-		Timestamp = consumeResult.Message.Timestamp.UtcDateTime;
-	}
+	public string Topic { get; set; } = consumeResult.Topic;
+	public string Value { get; set; } = consumeResult.Message.Value;
+	public DateTime Timestamp { get; set; } = consumeResult.Message.Timestamp.UtcDateTime;
 }

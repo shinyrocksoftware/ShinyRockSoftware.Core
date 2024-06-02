@@ -7,7 +7,7 @@ using Pluralize.NET;
 
 namespace Base.Extension;
 
-public static class StringExtensions
+public static partial class StringExtensions
 {
 	/// <summary>
 	///     Retrieve a substring with start and end index
@@ -31,26 +31,6 @@ public static class StringExtensions
 		var arr = source.ToCharArray();
 		Array.Reverse(arr);
 		return new(arr);
-	}
-
-	/// <summary>
-	///	    Indicates whether the specified string is null or an System.String.Empty string AFTER trimming.
-	/// </summary>
-	/// <param name="source">The string to test..</param>
-	/// <returns>true if the source parameter is null or an empty string (""); otherwise, false..</returns>
-	public static bool IsNullOrEmpty(this string source)
-	{
-		return source == null || string.IsNullOrWhiteSpace(source);
-	}
-
-	/// <summary>
-	///     Indicates whether the specified string is not null and an System.String.Empty string AFTER trimming.
-	/// </summary>
-	/// <param name="source">The string to test..</param>
-	/// <returns>true if the source parameter is not null and an empty string (""); otherwise, false..</returns>
-	public static bool IsNotNullNorEmpty(this string source)
-	{
-		return !IsNullOrEmpty(source);
 	}
 
 	/// <summary>
@@ -205,14 +185,14 @@ public static class StringExtensions
 		return source.Equals(comparedString, StringComparison.OrdinalIgnoreCase);
 	}
 
-	public static bool ContainsCI(this string source, string comparedString)
+	public static bool ContainsCI(this string? source, string? comparedString)
 	{
-		return source != null && comparedString != null && source.ToLower().Contains(comparedString.ToLower());
+		return source != null && comparedString != null && source.Contains(comparedString, StringComparison.CurrentCultureIgnoreCase);
 	}
 
-	public static bool StartsWithCI(this string source, string comparedString)
+	public static bool StartsWithCI(this string? source, string? comparedString)
 	{
-		return source != null && comparedString != null && source.ToLower().StartsWith(comparedString.ToLower());
+		return source != null && comparedString != null && source.StartsWith(comparedString, StringComparison.CurrentCultureIgnoreCase);
 	}
 
 	public static IEnumerable<string> ToList(this string source, char separator = ',')
@@ -339,7 +319,7 @@ public static class StringExtensions
 		memoryStream.Position = 0;
 
 		var compressedData = new byte[memoryStream.Length];
-		memoryStream.Read(compressedData, 0, compressedData.Length);
+		_ = memoryStream.Read(compressedData, 0, compressedData.Length);
 
 		var gZipBuffer = new byte[compressedData.Length + 4];
 		Buffer.BlockCopy(compressedData, 0, gZipBuffer, 4, compressedData.Length);
@@ -361,12 +341,12 @@ public static class StringExtensions
 		memoryStream.Position = 0;
 
 		using var gZipStream = new GZipStream(memoryStream, CompressionMode.Decompress);
-		gZipStream.Read(buffer, 0, buffer.Length);
+		_ = gZipStream.Read(buffer, 0, buffer.Length);
 
 		return Encoding.UTF8.GetString(buffer);
 	}
 
-	public static byte[]? ToByteArray(this string source)
+	public static byte[]? ToByteArray(this string? source)
 	{
 		byte[]? result = null;
 
@@ -536,7 +516,7 @@ public static class StringExtensions
 	/// <returns></returns>
 	public static string ToSafeString(this string source, string replaceString = "_")
 	{
-		return Regex.Replace(source, @"[^a-zA-z0-9]+", replaceString);
+		return SafeStringRegex().Replace(source, replaceString);
 	}
 
 	public static string SafeEndpoint(this string source)
@@ -546,12 +526,12 @@ public static class StringExtensions
 
 	public static bool IsSnakeCase(this string source)
 	{
-		return Regex.Match(source, "^[a-z0-9]+(_[a-z0-9]+)*$").Success;
+		return SnakeCaseRegex().Match(source).Success;
 	}
 
 	public static Stream ToStream(this string source)
 	{
-		using var stream = new MemoryStream();
+		var stream = new MemoryStream();
 		using var writer = new StreamWriter(stream);
 		writer.Write(source);
 		writer.Flush();
@@ -616,7 +596,7 @@ public static class StringExtensions
 		return result;
 	}
 
-	public static string GetMandatoryEnvironmentVariable(this string environmentName)
+	public static string? GetMandatoryEnvironmentVariable(this string environmentName)
 	{
 		var variable = environmentName.GetOptionalEnvironmentVariable();
 
@@ -636,7 +616,7 @@ public static class StringExtensions
 	public static bool EqualsMandatoryEnvironmentVariable(this string environmentName, string value)
 	{
 		var variable = environmentName.GetMandatoryEnvironmentVariable();
-		return variable.EqualsCI(value);
+		return variable?.EqualsCI(value) ?? false;
 	}
 
 	public static bool EqualsOptionalEnvironmentVariable(this string environmentName, string value)
@@ -649,14 +629,14 @@ public static class StringExtensions
 	{
 		return "ASPNETCORE_ENVIRONMENT".EqualsOptionalEnvironmentVariable(value);
 	}
-		
+
 	public static bool IsEnvironmentVariableNullOrEmpty(this string environmentName)
 	{
 		var variable = environmentName.GetOptionalEnvironmentVariable();
 		return variable.IsNullOrEmpty();
 	}
 
-	public static int ToInt(this string text) => text == null ? default : int.Parse(text);
+	public static int ToInt(this string? text) => text == null ? default : int.Parse(text);
 
 	public static string AppendLine(this string source, string arg)
 	{
@@ -678,7 +658,7 @@ public static class StringExtensions
 
 		return result.ToString();
 	}
-	
+
 	public static bool IsJwtFormat(this string jwt) => jwt.Split('.').Length == 3;
 
 	public static string Singularize(this string value)
@@ -690,4 +670,10 @@ public static class StringExtensions
 	{
 		return new Pluralizer().Pluralize(value);
 	}
+
+    [GeneratedRegex("^[a-z0-9]+(_[a-z0-9]+)*$")]
+    private static partial Regex SnakeCaseRegex();
+
+    [GeneratedRegex(@"[^a-zA-z0-9]+")]
+    private static partial Regex SafeStringRegex();
 }

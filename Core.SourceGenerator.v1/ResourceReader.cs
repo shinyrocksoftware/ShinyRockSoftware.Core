@@ -2,12 +2,12 @@
 
 internal class ResourceReader
 {
-	public static string GetResource<TAssembly>(string endWith)
+	public static string? GetResource<TAssembly>(string endWith)
 	{
 		return GetResource(endWith, typeof(TAssembly));
 	}
 
-	public static string GetResource(string name, Type? assemblyType = null)
+	public static string? GetResource(string name, Type? assemblyType = null)
 	{
 		var assembly = GetAssembly(assemblyType);
 
@@ -29,7 +29,7 @@ internal class ResourceReader
 			: Assembly.GetAssembly(assemblyType);
 	}
 
-	private static string ReadEmbeddedResource(Assembly assembly, string name)
+	private static string? ReadEmbeddedResource(Assembly assembly, string name)
 	{
 		using var resourceStream = assembly.GetManifestResourceStream(name);
 		if (resourceStream == null) return null;

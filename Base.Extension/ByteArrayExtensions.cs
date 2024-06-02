@@ -24,7 +24,7 @@ public static class ByteArrayExtensions
         return ToString(source).ToMySqlUuidString();
     }
 
-    public static T To<T>(this byte[] bytes, int offset = 0)
+    public static T? To<T>(this byte[] bytes, int offset = 0)
     {
         var result = default(T);
 

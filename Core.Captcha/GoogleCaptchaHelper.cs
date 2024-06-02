@@ -9,14 +9,9 @@ using Microsoft.Extensions.Logging;
 namespace Core.Captcha;
 
 [SingletonAutoInjection]
-internal class GoogleCaptchaHelper : ICaptchaHelper
+internal class GoogleCaptchaHelper(ILogger<GoogleCaptchaHelper> logger) : ICaptchaHelper
 {
-	private readonly ILogger _logger;
-
-	public GoogleCaptchaHelper(ILogger<GoogleCaptchaHelper> logger)
-	{
-		_logger = logger;
-	}
+	private readonly ILogger _logger = logger;
 
 	public bool IsValid(string secretKey, string token)
 	{

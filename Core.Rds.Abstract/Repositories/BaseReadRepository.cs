@@ -15,7 +15,7 @@ public abstract class BaseReadRepository<T, TE, TEO, TDC>(ILogger<BaseReadReposi
 	where TEO : IPlainEntityDto<T>, new()
 	where TDC : DbContext
 {
-	protected abstract Func<IQueryable<TE>, IIncludableQueryable<TE, object>> DefaultIncludes { get; set; }
+	protected abstract Func<IQueryable<TE>, IIncludableQueryable<TE, object>>? DefaultIncludes { get; set; }
 
 	protected readonly ILogger Logger = logger;
 	protected readonly TDC DataContext = dataContext;
@@ -26,7 +26,7 @@ public abstract class BaseReadRepository<T, TE, TEO, TDC>(ILogger<BaseReadReposi
 		, CancellationToken cancellationToken
 	)
 	{
-		var query = Query(includes).Where(c => c.Id.Equals(id));
+		var query = Query(includes).Where(c => c.Id != null && c.Id.Equals(id));
 
 		PrintQuery(query);
 
@@ -142,7 +142,7 @@ public abstract class BaseReadRepository<T, TE, TEO, TDC>(ILogger<BaseReadReposi
 		return data.CreatePage(pageNumber, pageSize, total);
 	}
 
-	public async ValueTask<bool> ExistsAsync(Expression<Func<TE, bool>>? filter, CancellationToken cancellationToken)
+	public async ValueTask<bool> ExistsAsync(Expression<Func<TE, bool>> filter, CancellationToken cancellationToken)
 	{
 		IQueryable<TE> query = DataContext.Set<TE>();
 

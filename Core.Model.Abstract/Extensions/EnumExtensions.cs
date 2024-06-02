@@ -4,12 +4,12 @@ namespace Core.Model.Abstract.Extensions;
 
 public static class EnumExtensions
 {
-    public static TV AttributeText<T, TV>(this System.Enum source)
+    public static TV? AttributeText<T, TV>(this Enum source)
     {
         return GetAttribute<T, TV>(source);
     }
 
-    public static TV GetAttribute<T, TV>(this System.Enum source)
+    public static TV? GetAttribute<T, TV>(this Enum? source)
     {
         var result = default(TV);
 

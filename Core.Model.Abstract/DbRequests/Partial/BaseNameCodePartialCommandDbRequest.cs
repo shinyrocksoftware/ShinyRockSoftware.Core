@@ -9,6 +9,6 @@ public abstract class BaseNameCodePartialCommandDbRequest<T, TE, TBE> : BasePart
 	where TE : IEntity<T>, new()
 	where TBE : INotificationEvent, new()
 {
-	public string? Name { get; set; }
-	public string? Code { get; set; }
+	public string Name { get; set; }
+	public string Code { get; set; }
 }

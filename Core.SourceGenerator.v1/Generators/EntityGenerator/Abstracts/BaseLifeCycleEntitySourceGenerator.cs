@@ -8,9 +8,10 @@ public abstract class BaseLifeCycleEntitySourceGenerator : BaseEntitySourceGener
 {
 	public override void GenerateActionDelegate(IList<GeneratorRegistration> generatorRegistrations, GeneratorExecutionContext context, SourceModel model)
 	{
+		if (model is not EntityModel entityModel) throw new ApplicationException("model is not EntityModel");
+
 		foreach (var @event in EntityLifeCycleConstants.Names)
 		{
-			var entityModel = model as EntityModel;
 			entityModel.EntityLifeCycleEvent = @event;
 
 			base.GenerateActionDelegate(generatorRegistrations, context, entityModel);

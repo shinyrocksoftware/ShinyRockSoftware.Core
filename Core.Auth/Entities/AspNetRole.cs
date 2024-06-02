@@ -9,5 +9,5 @@ public class AspNetRole : BasePlainEntity<Guid>
     public string ConcurrencyStamp { get; set; }
     public string Name { get; set; }
     public string NormalizedName { get; set; }
-    public IEnumerable<AspNetUserRole> UserRoleDetails { get; } = Enumerable.Empty<AspNetUserRole>();
+    public IEnumerable<AspNetUserRole> UserRoleDetails { get; } = [];
 }

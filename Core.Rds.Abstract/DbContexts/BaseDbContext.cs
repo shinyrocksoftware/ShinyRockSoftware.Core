@@ -14,7 +14,7 @@ public abstract class BaseDbContext<T>(DbContextOptions<T> options) : DbContext(
 		{
 			var types = new List<Type>();
 			var assemblies = GetSafeAssemblies();
-			var entityTypesCollection = assemblies.Select(assembly => assembly.GetTypes().Where(x => x.Namespace.IsNotNullNorEmpty() && x.IsSubclassOf(entityType) && x is { IsGenericType: false, IsAbstract: false }));
+			var entityTypesCollection = assemblies.Select(assembly => assembly.GetTypes().Where(x => x.Namespace != null && x.Namespace.IsNotNullNorEmpty() && x.IsSubclassOf(entityType) && x is { IsGenericType: false, IsAbstract: false }));
 
 			foreach (var entityTypes in entityTypesCollection)
 			{

@@ -7,15 +7,8 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Core.Doc.Swashbuckle.DocumentFilters;
 
-public class OpenApiDirectlyRequestAuthorizerDocumentFilter : IDocumentFilter
+public class OpenApiDirectlyRequestAuthorizerDocumentFilter(string authorizerName) : IDocumentFilter
 {
-    private readonly string _authorizerName;
-
-    public OpenApiDirectlyRequestAuthorizerDocumentFilter(string authorizerName)
-    {
-        _authorizerName = authorizerName;
-    }
-
     public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
     {
         foreach (var path in swaggerDoc.Paths)
@@ -87,7 +80,7 @@ public class OpenApiDirectlyRequestAuthorizerDocumentFilter : IDocumentFilter
                 {
                     new OpenApiSecurityScheme
                     {
-                        Name = _authorizerName
+                        Name = authorizerName
                     }
                     , new List<string>()
                 }
@@ -113,7 +106,7 @@ public class OpenApiDirectlyRequestAuthorizerDocumentFilter : IDocumentFilter
         {
             foreach (var security in operation.Security)
             {
-                var schemes = security.FirstOrDefault(c => c.Key.Name == _authorizerName);
+                var schemes = security.FirstOrDefault(c => c.Key.Name == authorizerName);
                 if (schemes.Key != null)
                 {
                     security.Remove(schemes.Key);

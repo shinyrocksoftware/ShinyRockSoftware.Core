@@ -22,7 +22,7 @@ public class SingleKeyConnectorModelAttribute : DefaultValueAttribute, IAttribut
 
     public new string Value { get; }
     public bool Required { get; }
-    public Type Type { get; }
+    public Type? Type { get; }
     public bool IsInt { get; }
     public bool IsBoolean { get; }
     public bool IsTimeSpan { get; }

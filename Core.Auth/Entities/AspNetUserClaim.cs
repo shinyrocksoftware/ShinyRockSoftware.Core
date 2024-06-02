@@ -4,17 +4,10 @@ using Core.Model.Abstract.Entities;
 namespace Core.Auth.Entities;
 
 [Table("AspNetUserClaims")]
-public class AspNetUserClaim : BasePlainEntity<Guid>
+public class AspNetUserClaim(Guid userId, string claimType, string claimValue) : BasePlainEntity<Guid>
 {
-    public Guid UserId { get; set; }
+    public Guid UserId { get; set; } = userId;
     public AspNetUser User { get; set; }
-    public string ClaimType { get; set; }
-    public string ClaimValue { get; set; }
-
-    public AspNetUserClaim(Guid userId, string claimType, string claimValue)
-    {
-        UserId = userId;
-        ClaimType = claimType;
-        ClaimValue = claimValue;
-    }
+    public string ClaimType { get; set; } = claimType;
+    public string ClaimValue { get; set; } = claimValue;
 }

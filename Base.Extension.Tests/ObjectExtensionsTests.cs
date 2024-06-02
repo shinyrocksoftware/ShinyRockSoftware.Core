@@ -1,4 +1,3 @@
-using Base.Extension;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 

@@ -1,15 +1,8 @@
 namespace Core.Auth.DbRequests;
 
-public class GetPagingUsersDbRequest
+public class GetPagingUsersDbRequest(int pageNumber, int pageSize, string search = "")
 {
-    public int PageNumber { get; set; }
-    public int PageSize { get; set; }
-    public string Search { get; set; }
-
-    public GetPagingUsersDbRequest(int pageNumber, int pageSize, string search = "")
-    {
-        PageNumber = pageNumber;
-        PageSize = pageSize;
-        Search = search;
-    }
+    public int PageNumber { get; set; } = pageNumber;
+    public int PageSize { get; set; } = pageSize;
+    public string Search { get; set; } = search;
 }

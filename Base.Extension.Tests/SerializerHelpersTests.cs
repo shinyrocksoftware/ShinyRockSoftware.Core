@@ -1,4 +1,3 @@
-using Base.Extension;
 using Base.Extension.Tests.Pocos;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
@@ -34,7 +33,7 @@ public class SerializerHelperTests
 
 		var json = jsonString.Deserialize<ApiRequestSmallPoco>();
 
-		 ClassicAssert.AreEqual(json.Name, "ABC");
+		ClassicAssert.AreEqual(json?.Name, "ABC");
 	}
 
 	[Test]
@@ -64,7 +63,7 @@ public class SerializerHelperTests
 
 		var json = await jsonString.DeserializeAsync<ApiRequestSmallPoco>();
 
-		 ClassicAssert.AreEqual(json.Name, "ABC");
+		 ClassicAssert.AreEqual(json?.Name, "ABC");
 	}
 
 	[Test]

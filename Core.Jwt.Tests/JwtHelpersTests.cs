@@ -12,16 +12,16 @@ namespace Core.Jwt.Tests;
 
 public class JwtHelpersTests
 {
-	private IJwtHelper _jwtHelper;
+	private IJwtKeyTool _jwtKeyTool;
 
 	[SetUp]
 	public void SetUp()
 	{
 		using var loggerFactory = LoggerFactory.Create(c => c.AddConsole());
-		var logger = loggerFactory.CreateLogger<JwtHelper>();
+		var logger = loggerFactory.CreateLogger<JwtKeyTool>();
 
 		var connectorModelHelper = Substitute.For<IConnectorModelHelper>();
-		_jwtHelper = new JwtHelper(logger, connectorModelHelper);
+		_jwtKeyTool = new JwtKeyTool(logger, connectorModelHelper);
 	}
 
 	[Test]
@@ -33,7 +33,7 @@ public class JwtHelpersTests
 		};
 		var secretKey = StringExtensions.Random(64);
 
-		var jwt = _jwtHelper.SymmetricEncode(payload, secretKey, JwtConstants.SymmetricAlgorithm.HS256);
+		var jwt = _jwtKeyTool.SymmetricEncode(payload, secretKey, JwtConstants.SymmetricAlgorithm.HS256);
 
 		ClassicAssert.IsTrue(jwt.IsJwtFormat());
 	}
@@ -51,9 +51,9 @@ public class JwtHelpersTests
 		};
 		var secretKey = StringExtensions.Random(64);
 
-		var jwt = _jwtHelper.SymmetricEncode(payload, secretKey, JwtConstants.SymmetricAlgorithm.HS256);
+		var jwt = _jwtKeyTool.SymmetricEncode(payload, secretKey, JwtConstants.SymmetricAlgorithm.HS256);
 
-		var decodedPayload = _jwtHelper.SymmetricDecode(jwt, secretKey);
+		var decodedPayload = _jwtKeyTool.SymmetricDecode(jwt, secretKey);
 
 		ClassicAssert.AreEqual("Value 1", decodedPayload["Key 5"]);
 	}
@@ -66,8 +66,8 @@ public class JwtHelpersTests
 			{ "Key 1", "Value 1" }
 		};
 
-		(ECDsa privateKey, ECDsa _) = _jwtHelper.CreateAsymmetricKeys(ECCurve.NamedCurves.nistP256);
-		var jwt = _jwtHelper.AsymmetricEncode(privateKey, JwtConstants.AsymmetricAlgorithm.ES512, payload);
+		(ECDsa privateKey, ECDsa _) = _jwtKeyTool.CreateAsymmetricKeys(ECCurve.NamedCurves.nistP256);
+		var jwt = _jwtKeyTool.AsymmetricEncode(privateKey, JwtConstants.AsymmetricAlgorithm.ES512, payload);
 
 		ClassicAssert.IsTrue(jwt.IsJwtFormat());
 	}
@@ -84,10 +84,10 @@ public class JwtHelpersTests
 			{ "Key 5", "Value 1" },
 		};
 
-		(ECDsa privateKey, ECDsa publicKey) = _jwtHelper.CreateAsymmetricKeys(ECCurve.NamedCurves.nistP256);
-		var jwt = _jwtHelper.AsymmetricEncode(privateKey, JwtConstants.AsymmetricAlgorithm.ES512, payload);
+		(ECDsa privateKey, ECDsa publicKey) = _jwtKeyTool.CreateAsymmetricKeys(ECCurve.NamedCurves.nistP256);
+		var jwt = _jwtKeyTool.AsymmetricEncode(privateKey, JwtConstants.AsymmetricAlgorithm.ES512, payload);
 
-		var decodedPayload = _jwtHelper.AsymmetricDecode(jwt, publicKey);
+		var decodedPayload = _jwtKeyTool.AsymmetricDecode(jwt, publicKey);
 
 		ClassicAssert.AreEqual("Value 1", decodedPayload["Key 5"]);
 	}

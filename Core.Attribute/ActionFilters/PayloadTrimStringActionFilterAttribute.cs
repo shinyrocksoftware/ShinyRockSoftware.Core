@@ -35,7 +35,7 @@ public class PayloadTrimStringActionFilterAttribute : ActionFilterAttribute
 		}
 	}
 
-	private static object? TrimObject(object argValue)
+	private static object? TrimObject(object? argValue)
 	{
 		object? result = null;
 
@@ -54,7 +54,7 @@ public class PayloadTrimStringActionFilterAttribute : ActionFilterAttribute
 
 			foreach (var prop in props)
 			{
-				var value = (string) prop.GetValue(argValue, null);
+				var value = prop.GetValue(argValue, null) as string;
 				value = value?.Trim();
 				prop.SetValue(argValue, value, null);
 			}

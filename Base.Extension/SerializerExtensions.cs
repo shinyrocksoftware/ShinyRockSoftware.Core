@@ -10,7 +10,7 @@ public static class SerializerExtensions
         return JsonSerializer.Serialize(obj, SerializerOptions);
     }
 
-    public static T Deserialize<T>(this string strObject)
+    public static T? Deserialize<T>(this string? strObject)
     {
         return strObject.IsNullOrEmpty()
             ? default
@@ -32,9 +32,9 @@ public static class SerializerExtensions
         return result;
     }
 
-    public static async Task<T> DeserializeAsync<T>(this string strObject)
+    public static async Task<T?> DeserializeAsync<T>(this string strObject)
     {
-        T result = default;
+        T? result = default;
 
         if (strObject.IsNullOrEmpty())
         {
@@ -51,15 +51,15 @@ public static class SerializerExtensions
         return result;
     }
 
-    public static async Task<T> DeserializeAsync<T>(this string strObject, Type baseType)
+    public static async Task<T?> DeserializeAsync<T>(this string strObject, Type baseType) where T : class
     {
-        T result = default;
+        T? result = default;
 
         try
         {
             await strObject.ActionInStreamAsync(async stream =>
             {
-                result = (T) await JsonSerializer.DeserializeAsync(stream, baseType, SerializerOptions);
+                result = await JsonSerializer.DeserializeAsync(stream, baseType, SerializerOptions) as T;
             });
         }
         catch (JsonException)

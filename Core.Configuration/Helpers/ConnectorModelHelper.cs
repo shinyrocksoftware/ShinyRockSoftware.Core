@@ -6,18 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Core.Configuration.Helpers;
 
 [SingletonAutoInjection]
-internal class ConnectorModelHelper : IConnectorModelHelper
+internal class ConnectorModelHelper(IServiceProvider serviceProvider) : IConnectorModelHelper
 {
-    private readonly IServiceProvider _serviceProvider;
-
-    public ConnectorModelHelper(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
-
     public T GetConnector<T>() where T : class, IConnectorModel
     {
-        var serviceConfigurationConnector = _serviceProvider.GetService<IConfigurationConnector<T>>();
+        var serviceConfigurationConnector = serviceProvider.GetService<IConfigurationConnector<T>>();
         return serviceConfigurationConnector?.GetConnector();
     }
 }
