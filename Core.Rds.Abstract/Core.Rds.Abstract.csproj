@@ -19,9 +19,14 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Base.Extension\Base.Extension.csproj" />
-        <ProjectReference Include="..\Core.Helper.Interface\Core.Helper.Interface.csproj" />
+        <ProjectReference Include="..\Base.Model.Rds\Base.Model.Rds.csproj" />
         <ProjectReference Include="..\Base.ObjectMapper.Extension\Base.ObjectMapper.Extension.csproj" />
+        <ProjectReference Include="..\Core.Helper.Interface\Core.Helper.Interface.csproj" />
         <ProjectReference Include="..\Core.Model.Abstract\Core.Model.Abstract.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
     </ItemGroup>
 
 </Project>

@@ -3,6 +3,7 @@ using Client.iTaxViet.CompanyService.v1.App.Services.Interfaces;
 using Core.Attribute.AutoInjection;
 using Base.Model.Interface;
 using Base.ObjectMapper.Extension;
+using Core.Rds.Abstract.Extensions;
 using Core.Rds.Interface;
 
 namespace Client.iTaxViet.CompanyService.v1.App.Services;
@@ -13,12 +14,14 @@ internal class CompanyService(IReadRepository<Guid, Company, CompanyDto> readRep
 {
 	public async ValueTask<IEnumerablePage<CompanyDto>> GetPagedAsync(GetPagedCompaniesQueryDbRequest request, CancellationToken cancellationToken)
 	{
-		return await readRepository.GetPagedAsync(request.PageNumber, request.PageSize, null, null, null, null, cancellationToken);
+		return await readRepository.Query()
+		                           .SelectPagedAsync(request.PageNumber, request.PageSize, cancellationToken);
 	}
 
 	public async ValueTask<CompanyDto?> GetByIdAsync(GetCompanyByIdQueryDbRequest request, CancellationToken cancellationToken)
 	{
-		return await readRepository.GetByIdAsync(request.Id, null, cancellationToken);
+		return await readRepository.Query()
+		                           .SelectByIdAsync(request.Id, cancellationToken);
 	}
 
 	public async ValueTask<CompanyDto> CreateAsync(CreateCompanyCommandDbRequest request, CancellationToken cancellationToken)

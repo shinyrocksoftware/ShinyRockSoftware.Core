@@ -19,6 +19,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Base.Model.Interface\Base.Model.Interface.csproj" />
+        <ProjectReference Include="..\Core.Rds.Abstract\Core.Rds.Abstract.csproj" />
     </ItemGroup>
 
 </Project>

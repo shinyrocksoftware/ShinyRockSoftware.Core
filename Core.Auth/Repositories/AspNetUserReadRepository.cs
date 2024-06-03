@@ -3,6 +3,7 @@ using Core.Auth.DbRequests;
 using Core.Auth.Entities;
 using Core.Auth.Interfaces;
 using Base.Model.Interface;
+using Core.Rds.Abstract.Extensions;
 using Core.Rds.DbContexts;
 using Core.Rds.Repositories;
 using Microsoft.EntityFrameworkCore.Query;
@@ -15,7 +16,7 @@ public class AspNetUserReadRepository(ILogger<AspNetUserReadRepository> logger, 
 {
 	protected override Func<IQueryable<AspNetUser>, IIncludableQueryable<AspNetUser, object>> DefaultIncludes { get; set; }
 
-    public async Task<IEnumerablePage<AspNetUserDto>> GetPagingUsersAsync(GetPagingUsersDbRequest dbRequest, CancellationToken cancellationToken)
+    public async ValueTask<IEnumerablePage<AspNetUserDto>> GetPagingUsersAsync(GetPagingUsersDbRequest dbRequest, CancellationToken cancellationToken)
     {
         var search = dbRequest.Search;
 
@@ -24,11 +25,9 @@ public class AspNetUserReadRepository(ILogger<AspNetUserReadRepository> logger, 
             search = search.Trim().ToLower();
         }
 
-        return await GetPagedAsync(
-	        dbRequest.PageNumber
-	        , dbRequest.PageSize
-	        , user => search.IsNullOrEmpty() || user.Email != null && user.Email.ToLower().Contains(search)
-	        , users => users.OrderByDescending(c => c.CreatedDate)
-	        , null, null, cancellationToken);
+        return await Query()
+                     .Where(user => search.IsNullOrEmpty() || user.Email != null && user.Email.ToLower().Contains(search))
+                     .OrderBy(users => users.OrderByDescending(c => c.CreatedDate))
+                     .SelectPagedAsync(dbRequest.PageNumber, dbRequest.PageSize, null, cancellationToken);
     }
 }

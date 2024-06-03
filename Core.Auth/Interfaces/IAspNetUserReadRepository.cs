@@ -7,5 +7,5 @@ namespace Core.Auth.Interfaces;
 
 public interface IAspNetUserReadRepository : IPlainReadRepository<Guid, AspNetUser, AspNetUserDto>
 {
-	Task<IEnumerablePage<AspNetUserDto>> GetPagingUsersAsync(GetPagingUsersDbRequest dbRequest, CancellationToken cancellationToken);
+	ValueTask<IEnumerablePage<AspNetUserDto>> GetPagingUsersAsync(GetPagingUsersDbRequest dbRequest, CancellationToken cancellationToken);
 }
