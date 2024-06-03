@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\App.Background.Periodic\App.Background.Periodic.csproj" />
+        <ProjectReference Include="..\App.Background\App.Background.csproj" />
         <ProjectReference Include="..\App.Background.Abstract\App.Background.Abstract.csproj" />
         <ProjectReference Include="..\App.Rest.Abstract\App.Rest.Abstract.csproj" />
     </ItemGroup>

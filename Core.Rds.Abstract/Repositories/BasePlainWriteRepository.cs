@@ -31,7 +31,7 @@ public abstract class BasePlainWriteRepository<T, TE, TDC>(INotificationEventDis
 		return entity;
 	}
 
-	public async ValueTask<TE> UpdateByIdAsync(object id, TE entity, CancellationToken cancellationToken)
+	public async ValueTask<TE> UpdateByIdAsync(T id, TE entity, CancellationToken cancellationToken)
 	{
 		return await ExecuteByIdAsync(id, inDatabaseEntity =>
 		{
@@ -43,7 +43,7 @@ public abstract class BasePlainWriteRepository<T, TE, TDC>(INotificationEventDis
 		}, cancellationToken);
 	}
 
-	public async ValueTask DeleteByIdAsync(object id, TE entity, CancellationToken cancellationToken)
+	public async ValueTask DeleteByIdAsync(T id, TE entity, CancellationToken cancellationToken)
 	{
 		await ExecuteByIdAsync(id, inDatabaseEntity =>
 		{
@@ -75,7 +75,7 @@ public abstract class BasePlainWriteRepository<T, TE, TDC>(INotificationEventDis
 
 	#region Internal Methods
 
-	internal async Task<TE> ExecuteByIdAsync(object id, Action<TE> entityExistAction, CancellationToken cancellationToken)
+	internal async Task<TE> ExecuteByIdAsync(T id, Action<TE> entityExistAction, CancellationToken cancellationToken)
 	{
 		var entity = await dataContext.Set<TE>().FindAsync([id], cancellationToken);
 

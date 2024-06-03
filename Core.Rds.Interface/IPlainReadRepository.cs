@@ -31,5 +31,5 @@ public interface IPlainReadRepository<T, TE, TEO>
 	                                              , Func<IEnumerable<TE>, IEnumerable<TEO>>? advancedMapping
 	                                              , CancellationToken cancellationToken);
 
-	ValueTask<bool> ExistsAsync(Expression<Func<TE, bool>>? filter, CancellationToken cancellationToken);
+	ValueTask<bool> ExistsAsync(Expression<Func<TE, bool>> filter, CancellationToken cancellationToken);
 }

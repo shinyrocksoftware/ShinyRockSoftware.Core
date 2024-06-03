@@ -1,5 +1,5 @@
-using App.Background.Periodic;
+using App.Background;
 using Lab.App.Background;
 
-var program = new PeriodicBackgroundProgram();
-program.Run<PeriodicBackgroundService>(["Lab"], null, args);
+var program = new DefaultBackgroundProgram();
+program.RunDefaultPeriodic<PeriodicBackgroundService>(["Lab"], null, args);

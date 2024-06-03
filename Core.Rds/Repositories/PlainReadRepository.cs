@@ -8,9 +8,9 @@ using Microsoft.Extensions.Logging;
 namespace Core.Rds.Repositories;
 
 public class PlainReadRepository<T, TE, TEO>(ILogger<PlainReadRepository<T, TE, TEO>> logger, PlainReadDbContext dataContext)
-	: BaseReadRepository<T, TE, TEO, PlainReadDbContext>(logger, dataContext), IPlainReadRepository<T, TE, TEO>
+	: BasePlainReadRepository<T, TE, TEO, PlainReadDbContext>(logger, dataContext), IPlainReadRepository<T, TE, TEO>
 	where TE : class, IPlainEntity<T>
 	where TEO : IPlainEntityDto<T>, new()
 {
-	protected override Func<IQueryable<TE>, IIncludableQueryable<TE, object>> DefaultIncludes { get; set; }
+	protected override Func<IQueryable<TE>, IIncludableQueryable<TE, object>>? DefaultIncludes { get; set; }
 }

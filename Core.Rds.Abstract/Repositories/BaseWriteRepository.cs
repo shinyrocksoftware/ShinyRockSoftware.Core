@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Core.Rds.Abstract.Repositories;
 
 public abstract class BaseWriteRepository<T, TE, TDC>(INotificationEventDispatcher dispatcher, TDC dataContext, IDateTimeHelper dateTimeHelper)
-	: BasePlainWriteRepository<T,TE,TDC>(dispatcher, dataContext)
+	: BasePlainWriteRepository<T, TE, TDC>(dispatcher, dataContext)
 	where TE : class, IEntity<T>
 	where TDC : DbContext
 {
@@ -19,7 +19,7 @@ public abstract class BaseWriteRepository<T, TE, TDC>(INotificationEventDispatch
 		return entity;
 	}
 
-	public new async ValueTask<TE> UpdateByIdAsync(object id, TE entity, CancellationToken cancellationToken)
+	public new async ValueTask<TE> UpdateByIdAsync(T id, TE entity, CancellationToken cancellationToken)
 	{
 		return await ExecuteByIdAsync(id, inDatabaseEntity =>
 		{
@@ -34,7 +34,7 @@ public abstract class BaseWriteRepository<T, TE, TDC>(INotificationEventDispatch
 		}, cancellationToken);
 	}
 
-	public new async ValueTask DeleteByIdAsync(object id, TE entity, CancellationToken cancellationToken)
+	public new async ValueTask DeleteByIdAsync(T id, TE entity, CancellationToken cancellationToken)
 	{
 		await ExecuteByIdAsync(id, inDatabaseEntity =>
 		{

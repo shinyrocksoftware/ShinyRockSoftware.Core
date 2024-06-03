@@ -9,21 +9,7 @@ namespace App.Background.Abstract;
 
 public abstract class BaseBackgroundProgram
 {
-	protected void RunDefaultPeriodic<T>(
-		string[] appRootNamespaces
-		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
-		, string[]? args = null)
-		where T : class, IPeriodicBackgroundService
-	{
-		AppBuilder.CreateDefaultConsoleApplication(appRootNamespaces, (configuration, services) =>
-		          {
-			          services.AddPeriodicBackgroundService<T>();
-			          extendingDelegate?.Invoke(configuration, services);
-		          }, null, args)
-		          .Run();
-	}
-
-	protected void RunDefaultCron<T>(
+	public void RunDefaultCron<T>(
 		string[] appRootNamespaces
 		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
 		, string[]? args = null)
@@ -32,6 +18,20 @@ public abstract class BaseBackgroundProgram
 		AppBuilder.CreateDefaultConsoleApplication(appRootNamespaces, (configuration, services) =>
 		          {
 			          services.AddCronBackgroundService<T>();
+			          extendingDelegate?.Invoke(configuration, services);
+		          }, null, args)
+		          .Run();
+	}
+
+	public void RunDefaultPeriodic<T>(
+		string[] appRootNamespaces
+		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
+		, string[]? args = null)
+		where T : class, IPeriodicBackgroundService
+	{
+		AppBuilder.CreateDefaultConsoleApplication(appRootNamespaces, (configuration, services) =>
+		          {
+			          services.AddPeriodicBackgroundService<T>();
 			          extendingDelegate?.Invoke(configuration, services);
 		          }, null, args)
 		          .Run();

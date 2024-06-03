@@ -9,9 +9,9 @@ public interface IWriteRepository<T, TE> : IPlainWriteRepository<T, TE>
 
 	new ValueTask<TE> AddAsync(TE entity, CancellationToken cancellationToken);
 
-	new ValueTask<TE> UpdateByIdAsync(object id, TE entity, CancellationToken cancellationToken);
+	new ValueTask<TE> UpdateByIdAsync(T id, TE entity, CancellationToken cancellationToken);
 
-	new ValueTask DeleteByIdAsync(object id, TE entity, CancellationToken cancellationToken);
+	new ValueTask DeleteByIdAsync(T id, TE entity, CancellationToken cancellationToken);
 
 	new ValueTask<int> SaveAsync(CancellationToken cancellationToken);
 }

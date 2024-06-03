@@ -12,5 +12,5 @@ public class ReadRepository<T, TE, TEO>(ILogger<ReadRepository<T, TE, TEO>> logg
 	where TE : class, IEntity<T>
 	where TEO : IEntityDto<T>, new()
 {
-	protected override Func<IQueryable<TE>, IIncludableQueryable<TE, object>> DefaultIncludes { get; set; }
+	protected override Func<IQueryable<TE>, IIncludableQueryable<TE, object>>? DefaultIncludes { get; set; }
 }
