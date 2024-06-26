@@ -1,6 +1,6 @@
 ﻿using Core.SourceGenerator.v1.Extensions;
 using Core.SourceGenerator.v1.Generators.EntityGenerator.Models;
-using Core.SourceGenerator.v1.Generators.MainGenerator.Models;
+using Core.SourceGenerator.v1.Models;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 

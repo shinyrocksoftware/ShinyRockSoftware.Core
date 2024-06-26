@@ -1,5 +1,6 @@
 ﻿using Core.SourceGenerator.v1.Extensions;
 using Core.SourceGenerator.v1.Generators.MainGenerator.Models;
+using Core.SourceGenerator.v1.Models;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -20,8 +21,8 @@ public class MainSyntaxContextReceiver : ISyntaxContextReceiver
 			var model = new MainModel
 			{
 				ClientNamespace = typeSymbol.ContainingNamespace.ToDisplayString()
-				, Namespace = classSyntax.GetCompilationUnit().GetNamespace()
 				, ClassModifier = classSyntax.GetClassModifier()
+				, Namespace = classSyntax.GetCompilationUnit().GetNamespace()
 			};
 
 			Models.Add(model);

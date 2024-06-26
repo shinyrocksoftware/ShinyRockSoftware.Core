@@ -1,8 +1,8 @@
-﻿using Core.SourceGenerator.v1.Generators.MainGenerator.Models;
+﻿using Core.SourceGenerator.v1.Models;
 
 namespace Core.SourceGenerator.v1.Generators.EntityGenerator.Models;
 
-public class EntityModel : MainModel
+public class EntityModel : SourceModel
 {
     public string EntityName { get; set; }
     public string EntityNamePlural { get; set; }

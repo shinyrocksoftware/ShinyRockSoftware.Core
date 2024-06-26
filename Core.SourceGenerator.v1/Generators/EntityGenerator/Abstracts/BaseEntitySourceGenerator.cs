@@ -1,5 +1,5 @@
 ﻿using Core.SourceGenerator.v1.Abstracts;
-using Core.SourceGenerator.v1.Generators.MainGenerator.Models;
+using Core.SourceGenerator.v1.Models;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
