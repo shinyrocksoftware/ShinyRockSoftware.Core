@@ -23,7 +23,6 @@ public static class WebApplicationBuilderExtensions
 	public static WebApplicationBuilder AddLogger(
 		this WebApplicationBuilder builder
 		, Action<ServiceConnectorModel, LoggerConnectorModel, LoggerConfiguration>? moreConfigurationAction = null
-		, ISinkRegistration? advancedSinkRegistration = default
 	)
 	{
 		var configuration = builder.Configuration;
@@ -41,6 +40,7 @@ public static class WebApplicationBuilderExtensions
 			{
 				var serviceProvider = services.BuildServiceProvider();
 				var connectorModelHelper = serviceProvider.GetRequiredService<IConnectorModelHelper>();
+				var sinkRegistration = serviceProvider.GetService<ISinkRegistration>();
 				var serviceConnectorModel = connectorModelHelper.GetConnector<ServiceConnectorModel>();
 				var loggerConnectorModel = connectorModelHelper.GetConnector<LoggerConnectorModel>();
 
@@ -73,7 +73,7 @@ public static class WebApplicationBuilderExtensions
 						.WriteTo.Console(new OpenSearchJsonFormatter());
 				}
 
-				advancedSinkRegistration?.Register(loggerConnectorModel, loggerConfiguration);
+				sinkRegistration?.Register(loggerConnectorModel, loggerConfiguration);
 				moreConfigurationAction?.Invoke(serviceConnectorModel, loggerConnectorModel, loggerConfiguration);
 
 				_isInitialized = true;

@@ -24,7 +24,6 @@ public abstract class BaseGrpcProgram
 		, Func<IMvcCoreBuilder, IMvcCoreBuilder>? mvcBuilderDelegate = null
 		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
 		, Action<IServiceCollection, IConfiguration>? customHealthChecksDelegate = null
-		, Action<WebApplicationBuilder, FeatureOptions>? customLoggerDelegate = null
 		, int restPort = 5001
 		, int grpcPort = 5002
 		, string[]? args = null
@@ -39,7 +38,6 @@ public abstract class BaseGrpcProgram
 				, extendingDelegate
 				, null
 				, customHealthChecksDelegate
-				, customLoggerDelegate
 				, restPort
 				, grpcPort
 				, args)
@@ -58,7 +56,6 @@ public abstract class BaseGrpcProgram
 	///  <param name="extendingDelegate"></param>
 	///  <param name="moreBuilderConfigDelegate"></param>
 	///  <param name="customHealthChecksDelegate"></param>
-	///  <param name="customLoggerDelegate"></param>
 	///  <param name="args"></param>
 	///  <param name="mvcOptionsDelegate"></param>
 	///  <returns></returns>
@@ -71,7 +68,6 @@ public abstract class BaseGrpcProgram
 		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
 		, Func<WebApplicationBuilder, WebApplicationBuilder>? moreBuilderConfigDelegate = null
 		, Action<IServiceCollection, IConfiguration>? customHealthChecksDelegate = null
-		, Action<WebApplicationBuilder, FeatureOptions>? customLoggerDelegate = null
 		, int restPort = 0
 		, int grpcPort = 0
 		, string[]? args = null
@@ -123,7 +119,6 @@ public abstract class BaseGrpcProgram
 				return builder;
 			}
 			, customHealthChecksDelegate
-			, customLoggerDelegate
 			, (c, xmlPath) =>
 			{
 				c.IncludeGrpcXmlComments(xmlPath, includeControllerXmlComments: true);

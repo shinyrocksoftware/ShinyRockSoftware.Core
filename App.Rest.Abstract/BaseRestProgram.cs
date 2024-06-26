@@ -21,7 +21,6 @@ public abstract class BaseRestProgram
 		, Func<IMvcCoreBuilder, IMvcCoreBuilder>? mvcBuilderDelegate = null
 		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
 		, Action<IServiceCollection, IConfiguration>? customHealthChecksDelegate = null
-		, Action<WebApplicationBuilder, FeatureOptions>? customLoggerDelegate = null
 		, int restPort = 5000
 		, string[]? args = null
 	)
@@ -34,7 +33,6 @@ public abstract class BaseRestProgram
 				, extendingDelegate
 				, null
 				, customHealthChecksDelegate
-				, customLoggerDelegate
 				, restPort
 				, args)
 			.Run();
@@ -51,7 +49,6 @@ public abstract class BaseRestProgram
 	/// <param name="mvcBuilderDelegate"></param>
 	/// <param name="moreBuilderConfigDelegate"></param>
 	/// <param name="customHealthChecksDelegate"></param>
-	/// <param name="customLoggerDelegate"></param>
 	/// <param name="args"></param>
 	/// <returns></returns>
 	private WebApplication CreateRestWebApplication(
@@ -62,7 +59,6 @@ public abstract class BaseRestProgram
 		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
 		, Func<WebApplicationBuilder, WebApplicationBuilder>? moreBuilderConfigDelegate = null
 		, Action<IServiceCollection, IConfiguration>? customHealthChecksDelegate = null
-		, Action<WebApplicationBuilder, FeatureOptions>? customLoggerDelegate = null
 		, int restPort = 0
 		, string[]? args = null
 	)
@@ -97,7 +93,6 @@ public abstract class BaseRestProgram
 				return builder;
 			}
 			, customHealthChecksDelegate
-			, customLoggerDelegate
 			, null
 			, args);
 

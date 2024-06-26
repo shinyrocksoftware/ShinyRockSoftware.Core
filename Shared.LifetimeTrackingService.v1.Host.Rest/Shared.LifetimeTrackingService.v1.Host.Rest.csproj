@@ -17,6 +17,7 @@
     <ItemGroup>
         <ProjectReference Include="..\App.Rest.Abstract\App.Rest.Abstract.csproj" />
         <ProjectReference Include="..\App.Rest.PostgreSql\App.Rest.PostgreSql.csproj" />
+        <ProjectReference Include="..\Core.Logger.ElasticSearch\Core.Logger.ElasticSearch.csproj" />
         <ProjectReference Include="..\Shared.LifetimeTrackingService.v1\Shared.LifetimeTrackingService.v1.csproj" />
     </ItemGroup>
 

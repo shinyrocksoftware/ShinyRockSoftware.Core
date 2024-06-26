@@ -81,7 +81,6 @@ public static class WebBuilder
 	///  <param name="extendingDelegate"></param>
 	///  <param name="moreBuilderConfigDelegate"></param>
 	///  <param name="customHealthChecksDelegate"></param>
-	///  <param name="customLoggerDelegate"></param>
 	///  <param name="extendingOptions"></param>
 	///  <param name="args"></param>
 	///  <returns></returns>
@@ -94,7 +93,6 @@ public static class WebBuilder
 		, Action<IConfiguration, IServiceCollection>? extendingDelegate = null
 		, Func<WebApplicationBuilder, WebApplicationBuilder>? moreBuilderConfigDelegate = null
 		, Action<IServiceCollection, IConfiguration>? customHealthChecksDelegate = null
-		, Action<WebApplicationBuilder, FeatureOptions>? customLoggerDelegate = null
 		, Action<SwaggerGenOptions, string>? extendingOptions = null
 		, string[]? args = null
 	)
@@ -160,15 +158,7 @@ public static class WebBuilder
 			customHealthChecksDelegate(services, configuration);
 		}
 
-		if (customLoggerDelegate == null)
-		{
-			builder = builder.AddLogger();
-		}
-		else
-		{
-			customLoggerDelegate(builder, featureOptions);
-		}
-
+		builder = builder.AddLogger();
 		builder = moreBuilderConfigDelegate?.Invoke(builder);
 		extendingDelegate?.Invoke(configuration, services);
 
